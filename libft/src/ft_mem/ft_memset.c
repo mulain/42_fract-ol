@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/29 23:54:59 by wmardin           #+#    #+#             */
-/*   Updated: 2022/01/29 23:54:59 by wmardin          ###   ########.fr       */
+/*   Created: 2022/01/30 17:29:48 by wmardin           #+#    #+#             */
+/*   Updated: 2022/01/30 17:29:48 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
+#include "libft.h"
 
-# define FRACTOL_H
-# include "mlx/mlx.h"
-# include "libft/include/libft.h"
-
-typedef struct s_imgdata
+/*
+The memset() function fills the first n bytes of the memory area
+pointed to by s with the constant byte c.
+The memset() function returns a pointer to the memory area s.
+*/
+void	*ft_memset(void *s, int c, size_t n)
 {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}	t_imgdata;
+	size_t	i;
+	char	*p;
 
-typedef struct s_mlxdata
-{
-	void	*mlx;
-	void	*win;
-}	t_mlxdata;
-
-#endif
+	p = (char *) s;
+	i = 0;
+	while (i < n)
+	{
+		p[i] = c;
+		i++;
+	}
+	return (s);
+}

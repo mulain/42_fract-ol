@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/29 23:54:59 by wmardin           #+#    #+#             */
-/*   Updated: 2022/01/29 23:54:59 by wmardin          ###   ########.fr       */
+/*   Created: 2022/01/31 23:23:41 by wmardin           #+#    #+#             */
+/*   Updated: 2022/01/31 23:23:41 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
+#include "libft.h"
 
-# define FRACTOL_H
-# include "mlx/mlx.h"
-# include "libft/include/libft.h"
-
-typedef struct s_imgdata
+/*
+The bzero() function erases the data in the n bytes of the memory
+starting at the location pointed to by s, by writing zeros (bytes
+containing '\0') to that area.
+return: none.
+*/
+void	ft_bzero(void *s, size_t n)
 {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}	t_imgdata;
-
-typedef struct s_mlxdata
-{
-	void	*mlx;
-	void	*win;
-}	t_mlxdata;
-
-#endif
+	ft_memset(s, 0, n);
+}

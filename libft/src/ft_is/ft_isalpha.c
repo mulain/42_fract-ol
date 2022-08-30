@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/29 23:54:59 by wmardin           #+#    #+#             */
-/*   Updated: 2022/01/29 23:54:59 by wmardin          ###   ########.fr       */
+/*   Created: 2022/01/29 14:02:38 by wmardin           #+#    #+#             */
+/*   Updated: 2022/01/29 14:02:38 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
+#include "libft.h"
 
-# define FRACTOL_H
-# include "mlx/mlx.h"
-# include "libft/include/libft.h"
-
-typedef struct s_imgdata
+int	ft_isalpha(int c)
 {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}	t_imgdata;
-
-typedef struct s_mlxdata
-{
-	void	*mlx;
-	void	*win;
-}	t_mlxdata;
-
-#endif
+	if ((c > 64 && c < 91) || (c > 96 && c < 123))
+		return (2);
+	return (0);
+}
