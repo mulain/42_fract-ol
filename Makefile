@@ -6,7 +6,7 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 17:11:14 by wmardin           #+#    #+#              #
-#    Updated: 2022/08/30 11:16:28 by wmardin          ###   ########.fr        #
+#    Updated: 2022/08/30 16:00:56 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,13 +15,13 @@ CFLAGS = -Wall -Wextra -Werror
 OS = $(shell uname)
 
 ifeq ($(OS), Linux)
-MLXFLAGS = -Lmlx -lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz
+MLXFLAGS = -Lmlx -lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz -DKEY_ESC=65307
 else
-MLXFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
+MLXFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit -DKEY_ESC=53
 endif
 
 NAME =	fract-ol
-SRC =	main.c
+SRC =	main.c put.c
 
 %.o: %.c
 
