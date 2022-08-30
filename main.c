@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:46:14 by wmardin           #+#    #+#             */
-/*   Updated: 2022/08/30 14:11:13 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/08/30 14:53:02 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	my_put_rectangle(t_imgdata *img, int x, int y, int length, int height,
 
 int	my_keypress(int key, t_mlxdata *mlx)
 {
-	if (key == 53)
+	if (key == 65307) //53
 	{
 		mlx_destroy_window(mlx->mlx, mlx->win);
 		exit(1);
