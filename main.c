@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:46:14 by wmardin           #+#    #+#             */
-/*   Updated: 2022/08/30 17:23:43 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/08/30 17:34:54 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(void)
 			&img.endian);
 	//my_put_pixel(&img, 5, 5, 0x00FF0000);
 	//my_put_rectangle(&img, 10, 10, 500, 200, 0x00FF0000);
-	my_put_circle(&img, 300, 300, 300, 0xAAFFFFFF);
+	my_put_circle(&img, 300, 300, 50, 0x00FFFFFF);
 	mlx_put_image_to_window(mlxdata.mlx, mlxdata.win, img.img, 0, 0);
 	mlx_key_hook(mlxdata.win, my_keypress, &mlxdata);
 	mlx_loop(mlxdata.mlx);
