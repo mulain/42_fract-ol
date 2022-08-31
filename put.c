@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 15:57:07 by wmardin           #+#    #+#             */
-/*   Updated: 2022/08/31 08:19:21 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/08/31 11:43:55 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,27 @@ void	my_put_circle(t_imgdata *img, int a, int b, int r, int color)
 	int		x;
 	int		y;
 	int		point;
+	int		gaussfactor;
+	int		i;
 
 	y = 0;
+	gaussfactor = 70;
 	while (y < img->height)
 	{
 		x = 0;
 		while (x < img->width)
 		{
+			i = 5;
 			point = (x - a) * (x - a) + (y - b) * (y - b) - r * r;
-			if (point < 3/2 * r && point > -3/2 * r)
-				my_put_pixel(img, x, y, color);
+			while (i * gaussfactor < 255 && i > -1)
+			{
+				if (point < r + r * i && point > -(r + r * i))
+				{
+					my_put_pixel(img, x, y, add_transparency(i * gaussfactor, color));
+					//my_put_pixel(img, x, y, color);
+				}
+				i--;
+			}
 			x++;
 		}
 		y++;

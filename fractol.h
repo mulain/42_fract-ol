@@ -54,4 +54,7 @@ void	my_put_circle(t_imgdata *img, int x, int y, int r, int color);
 //circtal.c
 void	my_circtal(t_imgdata *img, t_circtal circ);
 
+//mod_01.c
+int		add_transparency(unsigned char i, int color);
+
 #endif

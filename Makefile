@@ -6,7 +6,7 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 17:11:14 by wmardin           #+#    #+#              #
-#    Updated: 2022/08/30 20:52:57 by wmardin          ###   ########.fr        #
+#    Updated: 2022/08/31 11:21:12 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ MLXFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit -DKEY_ESC=53
 endif
 
 NAME =	fract-ol
-SRC =	main.c put.c circtal.c
+SRC =	main.c put.c circtal.c mod_01.c
 
 %.o: %.c
 
