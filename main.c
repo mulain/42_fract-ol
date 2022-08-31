@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:46:14 by wmardin           #+#    #+#             */
-/*   Updated: 2022/08/30 17:34:54 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/08/30 20:57:45 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,24 @@ int	main(void)
 {
 	t_mlxdata	mlxdata;
 	t_imgdata	img;
+	t_circtal	circ;
 
 	mlxdata.mlx = mlx_init();
-	mlxdata.win = mlx_new_window(mlxdata.mlx, 1000, 800, "fract-ol");
-	img.img = mlx_new_image(mlxdata.mlx, 1920, 1080);
-	img.width = 1920;
-	img.height = 1080;
+	mlxdata.win = mlx_new_window(mlxdata.mlx, 800, 800, "fract-ol");
+	img.width = 800;
+	img.height = 800;
+	img.img = mlx_new_image(mlxdata.mlx, img.width, img.height);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 			&img.endian);
 	//my_put_pixel(&img, 5, 5, 0x00FF0000);
 	//my_put_rectangle(&img, 10, 10, 500, 200, 0x00FF0000);
-	my_put_circle(&img, 300, 300, 50, 0x00FFFFFF);
+	//my_put_circle(&img, 400, 400, 200, 0x00FFFFFF);
+	circ.iter = 4;
+	circ.r = 100;
+	circ.x = img.width / 2;
+	circ.y = img.height / 2;
+	circ.color = 0x00FFFFFF;
+	my_circtal(&img, circ);
 	mlx_put_image_to_window(mlxdata.mlx, mlxdata.win, img.img, 0, 0);
 	mlx_key_hook(mlxdata.win, my_keypress, &mlxdata);
 	mlx_loop(mlxdata.mlx);

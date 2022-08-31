@@ -33,6 +33,15 @@ typedef struct s_mlxdata
 	void	*win;
 }	t_mlxdata;
 
+typedef struct s_circtal
+{
+	int		x;
+	int		y;
+	int		iter;
+	int		r;
+	int		color;
+}	t_circtal;
+
 //main.c
 int		my_keypress(int key, t_mlxdata *mlx);
 
@@ -41,5 +50,8 @@ void	my_put_pixel(t_imgdata *data, int x, int y, int color);
 void	my_put_rectangle(t_imgdata *img, int x, int y, int length, int height,
 		int color);
 void	my_put_circle(t_imgdata *img, int x, int y, int r, int color);
+
+//circtal.c
+void	my_circtal(t_imgdata *img, t_circtal circ);
 
 #endif

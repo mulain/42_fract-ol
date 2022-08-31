@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 15:57:07 by wmardin           #+#    #+#             */
-/*   Updated: 2022/08/30 17:33:51 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/08/31 08:19:21 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	my_put_circle(t_imgdata *img, int a, int b, int r, int color)
 		while (x < img->width)
 		{
 			point = (x - a) * (x - a) + (y - b) * (y - b) - r * r;
-			if (point < 2 * r && point > -2 * r)
+			if (point < 3/2 * r && point > -3/2 * r)
 				my_put_pixel(img, x, y, color);
 			x++;
 		}
