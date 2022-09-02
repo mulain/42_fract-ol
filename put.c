@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 15:57:07 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/02 15:34:48 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/02 16:01:31 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,30 @@ void	my_put_rectangle(t_block *b, int length, int height)
 }
 
 void	my_put_circle(t_block *bl, int a, int b, int r)
+{
+	int		x;
+	int		y;
+	int		point;
+	int		i;
+
+	y = 0;
+	i = 1;
+	while (y < bl->img_height)
+	{
+		x = 0;
+		while (x < bl->img_width)
+		{
+
+			point = (x - a) * (x - a) + (y - b) * (y - b) - r * r;
+			if (point < r + r * i && point > -(r + r * i))
+				my_put_pixel(bl, x, y, bl->color);
+			x++;
+		}
+		y++;
+	}
+}
+
+void	my_put_circle2(t_block *bl, int a, int b, int r)
 {
 	int		x;
 	int		y;
