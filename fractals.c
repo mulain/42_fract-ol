@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new.c                                              :+:      :+:    :+:   */
+/*   fractals.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:12:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/01 22:26:27 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/02 17:13:45 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,18 @@ int	mandelnoob(int x, int y)
 	}
 	//ft_printf("n:%i\n", n);
 	return (0x00FFFFFF & 0x00000FFF<<n);
+}
+
+void	serpcircle(t_block *b, int x, int y, int r)
+{
+	int		factor;
+
+	factor = 1;
+	if (r > 5)
+	{
+		my_circtal(b, x - r * factor, y, r / 2);
+		my_circtal(b, x + r * factor, y, r / 2);
+		my_circtal(b, x, y + r * factor, r / 2);
+	}
+	my_put_circle(b, x, y, r);
 }

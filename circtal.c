@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 20:26:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/02 15:54:08 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/02 17:12:20 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,16 @@
 	circ.y = img.height / 2;
 	circ.color = 0x00FFFFFF;
 */
-void	my_circtal(t_block *b)
+void	my_circtal(t_block *b, int x, int y, int r)
 {
-	double	factor;
-	t_block	b1;
+	int		factor;
 
-	factor = 1.0;
-	if (b->r > 5)
+	factor = 1;
+	if (r > 5)
 	{
-		b1.img_addr = b->img_addr;
-		b1.x = b->x - b->r * factor;
-		b1.y = b->y;
-		b1.r = b->r / (2);
-		my_circtal(&b1);
-		b1.x = b->x + b->r * factor;
-		my_circtal(&b1);
-		b1.x = b->x;
-		b1.y = b->y + b->r * factor;
-		my_circtal(&b1);
+		my_circtal(b, x - r * factor, y, r / 2);
+		my_circtal(b, x + r * factor, y, r / 2);
+		my_circtal(b, x, y + r * factor, r / 2);
 	}
-	my_put_circle(b, b->x, b->y, b->r);
+	my_put_circle(b, x, y, r);
 }

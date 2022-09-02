@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:46:14 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/02 15:59:39 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/02 17:13:51 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,11 @@ int	main(void)
 	b.img_addr = mlx_get_data_addr(b.img, &b.img_bpp, &b.img_line_length,
 			&b.img_endian);
 
-	//my_put_pixel(&b, 10, 10, 0x00FFFFFF);
 	//my_put_rectangle(&b, 10, 10);
-	my_put_circle(&b, 500, 500, 200);
-	my_circtal(&b);
+	//my_put_circle(&b, 500, 500, 200);
+	b.x = b.img_width / 2;
+	b.y = b.img_height / 2;
+	serpcircle(&b, b.x, b.y, 100);
 	/* while (b.y < b.img_height)
 	{
 		b.x = 0;

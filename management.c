@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:41:46 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/02 15:36:33 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/02 17:09:24 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int	my_keypress(int key, t_block *b)
 
 int	my_exit(void)
 {
-	ft_printf("later!\n");
+	ft_printf("Exit.\n");
 	exit (1);
 }

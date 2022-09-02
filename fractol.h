@@ -40,14 +40,12 @@ typedef struct s_block
 
 //fractals.c
 int		mandelbrot(int x, int y, int height, int width);
+void	serpcircle(t_block *b, int x, int y, int r);
 
 //put.c
 void	my_put_pixel(t_block *data, int x, int y, int color);
 void	my_put_rectangle(t_block *b, int length, int height);
 void	my_put_circle(t_block *b, int x, int y, int r);
-
-//circtal.c
-void	my_circtal(t_block *b);
 
 //mod_01.c
 int		add_transparency(unsigned char i, int color);
