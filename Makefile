@@ -6,7 +6,7 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 17:11:14 by wmardin           #+#    #+#              #
-#    Updated: 2022/08/31 11:21:12 by wmardin          ###   ########.fr        #
+#    Updated: 2022/09/02 15:05:03 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,20 +15,17 @@ CFLAGS = -Wall -Wextra -Werror
 OS = $(shell uname)
 
 ifeq ($(OS), Linux)
-MLXFLAGS = -Lmlx -lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz -DKEY_ESC=65307
+MLXFLAGS = -Lmlx -lmlx -L/usr/lib -Imlx -lXext -lX11 -DKEY_ESC=65307 -DKEY_LEFT=65361 -DKEY_RIGHT=65363 -DKEY_UP=65362 -DKEY_DOWN=65364
 else
 MLXFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit -DKEY_ESC=53
 endif
 
-NAME =	fract-ol
-SRC =	main.c put.c circtal.c mod_01.c
+NAME =	fractol
+SRC =	main.c management.c put.c circtal.c mod_01.c fractals.c
 
 %.o: %.c
 
 LIBFT = libft/libft.a
-
-#all:
-#	gcc $(SRC) -Lmlx -lmlx -framework OpenGL -framework AppKit -o fractol
 
 $(NAME): $(LIBFT)
 	@$(CC) $(CFLAGS) $(SRC) $(MLXFLAGS) $(LIBFT) -o $(NAME)
@@ -50,13 +47,13 @@ fclean: clean
 re: fclean all
 
 noflag:
-	@$(CC) $(SRC) $(MLXFLAGS_LINUX) -o $(NAME)
+	@$(CC) $(SRC) $(MLXFLAGS) $(LIBFT) -o $(NAME)
 	@echo '$(NAME) created w/o error flags.'
 
 test:
 	@echo $(OS)
 
-autogit:
+git:
 	git add .
 	git commit -m "auto add & push"
 	git push

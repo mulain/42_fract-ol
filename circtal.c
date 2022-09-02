@@ -6,38 +6,37 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 20:26:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/08/31 11:04:40 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/02 15:54:08 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	my_circtal(t_imgdata *img, t_circtal circ)
+/*
+	circ.iter = 4;
+	circ.r = 600;
+	circ.x = img.width / 2;
+	circ.y = img.height / 2;
+	circ.color = 0x00FFFFFF;
+*/
+void	my_circtal(t_block *b)
 {
-	t_circtal	circnext;
-	int			num;
-	int			denom;
+	double	factor;
+	t_block	b1;
 
- 	num = 1;
-	denom = 1;
-	circnext.color = circ.color;
-	if (circ.r > 5)
+	factor = 1.0;
+	if (b->r > 5)
 	{
-		circnext.x = circ.x - circ.r * num / denom;
-		circnext.y = circ.y;
-		circnext.r = circ.r / (2);
-		circnext.iter = circ.iter - 1;
-		my_circtal(img, circnext);
-		circnext.x = circ.x + circ.r * num / denom;
-		//circnext.y = circ.y;
-		//circnext.r = circ.r / 2;
-		//circnext.iter = circ.iter - 1;
-		my_circtal(img, circnext);
-		circnext.x = circ.x;
-		circnext.y = circ.y + circ.r * num / denom;
-		my_circtal(img, circnext);
-		//circnext.y = circ.y - circ.r * num / denom;
-		//my_circtal(img, circnext);
+		b1.img_addr = b->img_addr;
+		b1.x = b->x - b->r * factor;
+		b1.y = b->y;
+		b1.r = b->r / (2);
+		my_circtal(&b1);
+		b1.x = b->x + b->r * factor;
+		my_circtal(&b1);
+		b1.x = b->x;
+		b1.y = b->y + b->r * factor;
+		my_circtal(&b1);
 	}
-	my_put_circle(img, circ.x, circ.y, circ.r, circ.color);
+	my_put_circle(b, b->x, b->y, b->r);
 }
