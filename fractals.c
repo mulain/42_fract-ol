@@ -6,14 +6,14 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:12:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/03 21:36:33 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/03 22:53:18 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "fractol.h"
+#include "fractol.h"
 
 /*
-Zn1 = Zn0 * Zn0 + c
+Zn_1 = Zn_0 * Zn_0 + c
 */
 int	mandelbrot(t_env *e)
 {
@@ -27,66 +27,18 @@ int	mandelbrot(t_env *e)
 	n = 0;
 	x = 0;
 	y = 0;
-	while (n < 50)
+	while (n < e->max_iter)
 	{
 		if (x * x + y * y > 4)
-		{
-			set = 0;
-			break ;
-		}
+			return (0x00000000);
 		temp = 2 * x * y + e->y_mappd;
 		x = x * x - y * y + e->x_mappd;
 		y = temp;
 		n++;
 	}
-	return (set);
+	return (colorizer(e, n));
 }
 
-int	mandelbrot_save(int x, int y, int height, int width)
-{
-	double	r_min;
-	double	r_max;
-	double	i_min;
-	double	i_max;
-	double	cr;
-	double	ci;
-	double	zr;
-	double	zi;
-	int		n;
-	int		n_max;
-	int		set;
-	double	temp;
-
-	set = 1;
-	r_min = -2.0;
-	r_max = 2.0;
-	i_min = -2.0;
-	i_max = i_min + (r_max - r_min) * height / width;
-	cr = r_min + x * (r_max - r_min) / width;
-	ci = i_min + y * (i_max - i_min) / height;
-	n = 0;
-	zr = 0;
-	zi = 0;
-	n_max = 50;
-	while (n < n_max)
-	{
-		if (zr * zr + zi * zi > 4)
-		{
-			set = 0;
-			break ;
-		}
-		temp = 2 * zr * zi + ci;
-		zr = zr * zr - zi * zi + cr;
-		zi = temp;
-		n++;
-	}
-	return (set);
-}
-
-/*
-var a = map(x, 0, width, -2, 2);
-var b = map(y, 0 height, -2, 2);
-*/
 int	mandelnoob(int x, int y)
 {
 	int		n;

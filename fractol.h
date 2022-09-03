@@ -37,8 +37,18 @@ typedef struct s_env
 	double	x_mappd;
 	double	y_mappd;
 	int		r;
-	int		iter;
 	int		color;
+	int		max_iter;
+	int		maxcolor;
+	int		mincolor;
+	int		mincolor_t;
+	int		mincolor_r;
+	int		mincolor_g;
+	int		mincolor_b;
+	int		maxcolor_t;
+	int		maxcolor_r;
+	int		maxcolor_g;
+	int		maxcolor_b;
 	int		(*f)();
 }	t_env;
 
@@ -51,6 +61,7 @@ int		sierpcircle_weird(t_env *e, int x, int y, int r);
 
 //mapping.c
 void	map_pxl(t_env *e, int x, int y);
+int		colorizer(t_env *e, int n);
 
 //put.c
 void	put_pixel(t_env *data, int x, int y, int color);

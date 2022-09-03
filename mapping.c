@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 18:05:22 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/03 21:37:23 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/03 22:51:22 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,29 @@ void	map_pxl(t_env *e, int x, int y)
 {
 	e->x_mappd = e->x_min + x * ((e->x_max - e->x_min) / e->img_width);
 	e->y_mappd = e->y_min + y * ((e->y_max - e->y_min) / e->img_height);
+}
+
+int	colorizer(t_env *e, int n)
+{
+	int		color;
+	int		t;
+	int		r;
+	int		g;
+	int		b;
+
+	e->mincolor_t = 255;
+	e->maxcolor_t = 255;
+	e->mincolor_r = 0;
+	e->maxcolor_r = 255;
+	e->mincolor_g = 0;
+	e->maxcolor_g = 255;
+	e->mincolor_b = 0;
+	e->maxcolor_b = 255;
+	t = (e->maxcolor_t - e->mincolor_t) * (n / e->max_iter) + e->mincolor_t;
+	r = (e->maxcolor_r - e->mincolor_r) * (n / e->max_iter) + e->mincolor_r;
+	g = (e->maxcolor_g - e->mincolor_g) * (n / e->max_iter) + e->mincolor_g;
+	b = (e->maxcolor_b - e->mincolor_b) * (n / e->max_iter) + e->mincolor_b;
+	color = t << 24 | r << 16 | g << 8 | b;
+	//ft_printf("color:%X", color);
+	return (color);
 }
