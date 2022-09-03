@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:41:46 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/03 08:35:27 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/03 08:41:41 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	my_exit(int failure)
 
 int	error_msg(int argc, char **argv)
 {
-	ft_printf("Incorrect number of %i argument(s) for %s.\n", argc, argv[0] + 2);
-	my_exit(1);
-	return (1);
+	ft_printf("Incorrect number of %i argument(s) for %s.\n", argc - 1, argv[0] + 2);
+	return (my_exit(1));
 }
