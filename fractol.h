@@ -16,7 +16,7 @@
 # include "mlx/mlx.h"
 # include "libft/include/libft.h"
 
-typedef struct s_block
+typedef struct s_env
 {
 	void	*mlx;
 	void	*win;
@@ -34,24 +34,27 @@ typedef struct s_block
 	int		r;
 	int		iter;
 	int		color;
-}	t_block;
+}	t_env;
 
 
 
 //fractals.c
 int		mandelbrot(int x, int y, int height, int width);
-void	serpcircle(t_block *b, int x, int y, int r);
+void	sierpcircle(t_env *e, int x, int y, int r);
+void	sierpcircle_weird(t_env *e, int x, int y, int r);
 
 //put.c
-void	my_put_pixel(t_block *data, int x, int y, int color);
-void	my_put_rectangle(t_block *b, int length, int height);
-void	my_put_circle(t_block *b, int x, int y, int r);
+void	put_pixel(t_env *data, int x, int y, int color);
+void	put_rectangle(t_env *e, int length, int height);
+void	put_circle(t_env *e, int x, int y, int r);
+void	put_circle_weird(t_env *e, int a, int b, int r);
 
 //mod_01.c
 int		add_transparency(unsigned char i, int color);
 
 //management.c
-int		my_exit(void);
-int		my_keypress(int key, t_block *b);
+int		my_exit(int failure);
+int		error_msg(int argc, char **argv);
+int		keypress(int key, t_env *e);
 
 #endif

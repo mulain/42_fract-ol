@@ -6,7 +6,7 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 17:11:14 by wmardin           #+#    #+#              #
-#    Updated: 2022/09/02 15:05:03 by wmardin          ###   ########.fr        #
+#    Updated: 2022/09/02 17:17:28 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ MLXFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit -DKEY_ESC=53
 endif
 
 NAME =	fractol
-SRC =	main.c management.c put.c circtal.c mod_01.c fractals.c
+SRC =	main.c management.c put.c mod_01.c fractals.c
 
 %.o: %.c
 

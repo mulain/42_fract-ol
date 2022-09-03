@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:12:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/02 17:13:45 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/03 08:16:34 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,16 +89,34 @@ int	mandelnoob(int x, int y)
 	return (0x00FFFFFF & 0x00000FFF<<n);
 }
 
-void	serpcircle(t_block *b, int x, int y, int r)
+/*
+Draws the Sierpinski Triangle - but using circles!
+*/
+void	sierpcircle(t_env *e, int x, int y, int r)
 {
-	int		factor;
+	double		factor;
 
 	factor = 1;
+	if (r > 10)
+	{
+		sierpcircle(e, x - r * factor, y, r / 2);
+		sierpcircle(e, x + r * factor, y, r / 2);
+		sierpcircle(e, x, y + r * factor, r / 2);
+	}
+	put_circle(e, x, y, r);
+}
+
+void	sierpcircle_weird(t_env *e, int x, int y, int r)
+{
+	double		factor;
+
+	factor = 0.66;
 	if (r > 5)
 	{
-		my_circtal(b, x - r * factor, y, r / 2);
-		my_circtal(b, x + r * factor, y, r / 2);
-		my_circtal(b, x, y + r * factor, r / 2);
+		sierpcircle_weird(e, x - r * factor, y, r / 2);
+		sierpcircle_weird(e, x + r * factor, y, r / 2);
+		sierpcircle_weird(e, x, y + r * factor, r / 2);
+		//serpcircle_weird(e, x, y - r * factor, r / 2);
 	}
-	my_put_circle(b, x, y, r);
+	put_circle_weird(e, x, y, r);
 }
