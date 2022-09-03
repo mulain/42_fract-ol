@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:46:14 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/03 22:48:58 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/04 01:02:41 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,17 @@ int	main(int argc, char **argv)
 	errorcheck(argc, argv);
 	set_env(&e, argv);
 	//sierpcircle(&e, e.img_width / 2, e.img_height / 2, 400);
+	y = 0;
+	while (y < e.img_height)
+	{
+		x = 0;
+		while (x < e.img_width)
+		{
+			put_pixel(&e, x, y, 0x00FFFFFF);
+			x++;
+		}
+		y++;
+	}
 	y = 0;
 	while (y < e.img_height)
 	{

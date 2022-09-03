@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:12:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/03 22:53:18 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/04 01:24:34 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@ int	mandelbrot(t_env *e)
 	double	x;
 	double	y;
 	int		n;
-	int		set;
 	double	temp;
 
-	set = 1;
 	n = 0;
 	x = 0;
 	y = 0;
@@ -36,10 +34,36 @@ int	mandelbrot(t_env *e)
 		y = temp;
 		n++;
 	}
-	return (colorizer(e, n));
+	return (0x00FFFFFF & 0x00000FFF<<n);
+	//return (colorizer(e, n));
 }
 
-int	mandelnoob(int x, int y)
+int	mandelnoob(t_env *e)
+{
+	int		n;
+	int		x_next;
+	int		y_next;
+	int		a;
+	int		b;
+
+	n = 0;
+	while (n < e->max_iter)
+	{
+		x_next = e->x_mappd * e->x_mappd - e->y_mappd * e->y_mappd;
+		y_next = 2 * e->x_mappd * e->y_mappd;
+
+		a = x_next + e->x_mappd;
+		b = y_next + e->y_mappd;
+
+		if (abs(a + b) > 2000000000)
+			break ;
+		n++;
+	}
+	//ft_printf("n:%i\n", n);
+	return (0x00FFFFFF & 0x00000FFF<<n);
+}
+
+int	mandelnoob_save(int x, int y)
 {
 	int		n;
 	int		max;

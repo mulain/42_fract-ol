@@ -52,12 +52,11 @@ typedef struct s_env
 	int		(*f)();
 }	t_env;
 
-
-
 //fractals.c
 int		mandelbrot(t_env *e);
 int		sierpcircle(t_env *e, int x, int y, int r);
 int		sierpcircle_weird(t_env *e, int x, int y, int r);
+int		mandelnoob(t_env *e);
 
 //mapping.c
 void	map_pxl(t_env *e, int x, int y);

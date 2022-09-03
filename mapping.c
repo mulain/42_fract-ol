@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 18:05:22 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/03 22:51:22 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/04 01:10:53 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int	colorizer(t_env *e, int n)
 	int		g;
 	int		b;
 
-	e->mincolor_t = 255;
-	e->maxcolor_t = 255;
+	e->mincolor_t = 0;
+	e->maxcolor_t = 0;
 	e->mincolor_r = 0;
 	e->maxcolor_r = 255;
 	e->mincolor_g = 0;
@@ -38,6 +38,7 @@ int	colorizer(t_env *e, int n)
 	r = (e->maxcolor_r - e->mincolor_r) * (n / e->max_iter) + e->mincolor_r;
 	g = (e->maxcolor_g - e->mincolor_g) * (n / e->max_iter) + e->mincolor_g;
 	b = (e->maxcolor_b - e->mincolor_b) * (n / e->max_iter) + e->mincolor_b;
+	color = 0;
 	color = t << 24 | r << 16 | g << 8 | b;
 	//ft_printf("color:%X", color);
 	return (color);
