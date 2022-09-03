@@ -35,14 +35,15 @@ typedef struct s_env
 	int		r;
 	int		iter;
 	int		color;
+	int		(*f)();
 }	t_env;
 
 
 
 //fractals.c
 int		mandelbrot(int x, int y, int height, int width);
-void	sierpcircle(t_env *e, int x, int y, int r);
-void	sierpcircle_weird(t_env *e, int x, int y, int r);
+int		sierpcircle(t_env *e, int x, int y, int r);
+int		sierpcircle_weird(t_env *e, int x, int y, int r);
 
 //put.c
 void	put_pixel(t_env *data, int x, int y, int color);
@@ -55,7 +56,11 @@ int		add_transparency(unsigned char i, int color);
 
 //management.c
 int		my_exit(int failure);
-int		error_msg();
 int		keypress(int key, t_env *e);
+
+//setup.c
+void	errorcheck(int argc, char **argv);
+int		error_msg(void);
+void	set_env(t_env *e, char **argv);
 
 #endif

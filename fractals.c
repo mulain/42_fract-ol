@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:12:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/03 08:16:34 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/03 17:21:08 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int	mandelnoob(int x, int y)
 /*
 Draws the Sierpinski Triangle - but using circles!
 */
-void	sierpcircle(t_env *e, int x, int y, int r)
+int	sierpcircle(t_env *e, int x, int y, int r)
 {
 	double		factor;
 
@@ -104,9 +104,10 @@ void	sierpcircle(t_env *e, int x, int y, int r)
 		sierpcircle(e, x, y + r * factor, r / 2);
 	}
 	put_circle(e, x, y, r);
+	return(1);
 }
 
-void	sierpcircle_weird(t_env *e, int x, int y, int r)
+int	sierpcircle_weird(t_env *e, int x, int y, int r)
 {
 	double		factor;
 
@@ -119,4 +120,5 @@ void	sierpcircle_weird(t_env *e, int x, int y, int r)
 		//serpcircle_weird(e, x, y - r * factor, r / 2);
 	}
 	put_circle_weird(e, x, y, r);
+	return(1);
 }

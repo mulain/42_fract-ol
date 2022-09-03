@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:41:46 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/03 12:58:30 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/03 17:13:25 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,3 @@ int	my_exit(int failure)
 	exit(0);
 }
 
-int	error_msg(void)
-{
-	int		fd;
-	char	*text[1000];
-
-	fd = open("help.txt", 0);
-	read(fd, text, 1000);
-	ft_printf("%s\n", text);
-	return (my_exit(1));
-}
