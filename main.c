@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:46:14 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/03 08:27:05 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/03 12:25:50 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	main(int argc, char **argv)
 {
 	t_env		e;
 
-	if (argc < 3 || argc > 10)
-		return (error_msg(argc, argv));
+	if (argc != 4)
+		return (error_msg(argv));
 
 	e.y = 0;
 	e.img_width = 1000;

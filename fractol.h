@@ -15,6 +15,7 @@
 # define FRACTOL_H
 # include "mlx/mlx.h"
 # include "libft/include/libft.h"
+# include <fcntl.h>
 
 typedef struct s_env
 {
@@ -54,7 +55,7 @@ int		add_transparency(unsigned char i, int color);
 
 //management.c
 int		my_exit(int failure);
-int		error_msg(int argc, char **argv);
+int		error_msg();
 int		keypress(int key, t_env *e);
 
 #endif
