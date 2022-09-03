@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:12:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/03 17:21:08 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/03 21:36:33 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,34 @@
 /*
 Zn1 = Zn0 * Zn0 + c
 */
-int	mandelbrot(int x, int y, int height, int width)
+int	mandelbrot(t_env *e)
+{
+	double	x;
+	double	y;
+	int		n;
+	int		set;
+	double	temp;
+
+	set = 1;
+	n = 0;
+	x = 0;
+	y = 0;
+	while (n < 50)
+	{
+		if (x * x + y * y > 4)
+		{
+			set = 0;
+			break ;
+		}
+		temp = 2 * x * y + e->y_mappd;
+		x = x * x - y * y + e->x_mappd;
+		y = temp;
+		n++;
+	}
+	return (set);
+}
+
+int	mandelbrot_save(int x, int y, int height, int width)
 {
 	double	r_min;
 	double	r_max;
@@ -32,8 +59,8 @@ int	mandelbrot(int x, int y, int height, int width)
 
 	set = 1;
 	r_min = -2.0;
-	r_max = 1.0;
-	i_min = -1.5;
+	r_max = 2.0;
+	i_min = -2.0;
 	i_max = i_min + (r_max - r_min) * height / width;
 	cr = r_min + x * (r_max - r_min) / width;
 	ci = i_min + y * (i_max - i_min) / height;

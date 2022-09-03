@@ -30,8 +30,12 @@ typedef struct s_env
 	int		img_endian;
 	int		img_width;
 	int		img_height;
-	int		x;
-	int		y;
+	double	x_min;
+	double	x_max;
+	double	y_min;
+	double	y_max;
+	double	x_mappd;
+	double	y_mappd;
 	int		r;
 	int		iter;
 	int		color;
@@ -41,9 +45,12 @@ typedef struct s_env
 
 
 //fractals.c
-int		mandelbrot(int x, int y, int height, int width);
+int		mandelbrot(t_env *e);
 int		sierpcircle(t_env *e, int x, int y, int r);
 int		sierpcircle_weird(t_env *e, int x, int y, int r);
+
+//mapping.c
+void	map_pxl(t_env *e, int x, int y);
 
 //put.c
 void	put_pixel(t_env *data, int x, int y, int color);
@@ -60,7 +67,7 @@ int		keypress(int key, t_env *e);
 
 //setup.c
 void	errorcheck(int argc, char **argv);
-int		error_msg(void);
+int		error_msg(char *msg);
 void	set_env(t_env *e, char **argv);
 
 #endif
