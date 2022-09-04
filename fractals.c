@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:12:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/04 10:26:50 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/04 10:34:42 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	mandelbrot(t_env *e)
 		n++;
 	}
 	return (0);
-	//return (colorizer(e, n));
+	//return (dickbutt);
 }
 
 int	mandelnoob(t_env *e)
@@ -60,7 +60,6 @@ int	mandelnoob(t_env *e)
 		n++;
 	}
 	return (colorizer(e, n));
-	//return (0x00FFFFFF & 0x00000FFF << n);
 }
 
 int	mandelnoob_save(int x, int y)
