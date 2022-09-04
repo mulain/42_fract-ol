@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:41:46 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/04 19:14:55 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/04 19:34:31 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	mouse_action(int button, int mouse_x, int mouse_y, t_env *e)
 	e->mouse_x = mouse_x;
 	e->mouse_y = mouse_y;
 	e->mouse_button = button;
+	if (button == 1 || button == 4)
+		zoom(e, 1);
 	return (0);
 }
 

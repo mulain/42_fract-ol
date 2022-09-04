@@ -71,6 +71,8 @@ void	map_pxl(t_env *e, int x, int y);
 void	draw_img(t_env *e);
 int		colorizer(t_env *e, int n);
 void	move(t_env *e, int direction);
+void	zoom(t_env *e, int zoom_in);
+void	calc_xyranges(t_env *e);
 
 //put.c
 void	put_pixel(t_env *e, int x, int y, int color);
