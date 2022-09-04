@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:12:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/04 10:34:42 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/04 13:01:38 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,39 +56,10 @@ int	mandelnoob(t_env *e)
 		x = x_next + x;
 		y = y_next + y;
 		if (x * x - y * y > 200)
-			break ;
+			return (colorizer(e, n));
 		n++;
 	}
-	return (colorizer(e, n));
-}
-
-int	mandelnoob_save(int x, int y)
-{
-	int		n;
-	int		max;
-	int		a_next;
-	int		b_next;
-	int		a;
-	int		b;
-
-	n = 0;
-	max = 20;
-	a = x;
-	b = y;
-	while (n < max)
-	{
-		a_next = a * a - b * b;
-		b_next = 2 * a * b;
-
-		a = a_next + x;
-		b = b_next + y;
-
-		if (abs(a + b) > 2000000000)
-			break ;
-		n++;
-	}
-	//ft_printf("n:%i\n", n);
-	return (0x00FFFFFF & 0x00000FFF<<n);
+	return (0x000000099);
 }
 
 /*

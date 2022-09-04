@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 09:02:19 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/04 10:13:15 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/04 13:02:39 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,21 +54,63 @@ void	set_test(t_env *e)
 	e->max_iter = 50;
 }
 
+int	mandelnoob_save(t_env *e, int x, int y)
+{
+	int		n;
+	int		max;
+	int		a_next;
+	int		b_next;
+	int		a;
+	int		b;
+
+	n = 0;
+	max = 20;
+	a = x;
+	b = y;
+	while (n < max)
+	{
+		a_next = a * a - b * b;
+		b_next = 2 * a * b;
+		a = a_next + x;
+		b = b_next + y;
+		if (abs(a + b) > 2000000000)
+			break ;
+		n++;
+	}
+	//ft_printf("n:%i\n", n);
+	//return (0x00FFFFFF & 0x00000FFF<<n);
+	return (colorizer(e, n));
+}
+//gcc test.c -Lmlx -lmlx -framework OpenGL -framework AppKit
 int	main(void)
 {
 	t_env	e;
 	int		n;
+	int		x;
+	int		y;
 	int		color;
 
 	set_test(&e);
 	n = 1;
-	while (n <= e.max_iter)
+	y = 0;
+	while (y < e.img_height)
+	{
+		x = 0;
+		while (x < e.img_width)
+		{
+			put_pixel(&e, x, y, mandelnoob_save(&e, x, y));
+			x++;
+		}
+		y++;
+	}
+
+	/* while (n <= e.max_iter)
 	{
 		color = colorizer(&e, n);
 		printf("0x%X\n", color);
 		put_pixel(&e, n, n, color);
 		n++;
-	}
+	} */
 	mlx_put_image_to_window(e.mlx, e.win, e.img, 0, 0);
 	mlx_loop(e.mlx);
 }
