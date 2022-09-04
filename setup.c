@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:17:28 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/04 01:25:54 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/04 10:25:23 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,22 @@ int	error_msg(char *msg)
 	return (my_exit(1));
 }
 
+/*
+Setting y_max:
+range_y = y_max - y_min
+range_x = x_max - x_min
+range_x / img_width = range_y / img_height
+range_y = (range_x / img_width) * img_height
+y_max = y_min + (range_x / img_width) * img_height
+
+x axis is taken as fixex axis for window calculation.
+x axis 0 is moved to the right for mandelbrot, therefore
+x_max should be (around) 0.5 * abs(x_min)
+y axis is evenly divided, therefore y min and max are half
+of the range of x. but img ratio has to be taken into account
+so we have to multiply that with (width/height) to not get
+distorted images when using not square image dimensions.
+*/
 void	set_env(t_env *e, char **argv)
 {
 	char	fractal;
@@ -61,9 +77,9 @@ void	set_env(t_env *e, char **argv)
 	if (fractal == 'N')
 		e->f = mandelnoob;
 	e->x_min = -2.0;
-	e->x_max = 2.0;
-	e->y_min = -2.0;
-	e->y_max = ((e->x_max - e->x_min) / e->img_width) * e->img_height
-		+ e->y_min;
-	e->max_iter = 50;
+	e->x_max = e->x_min * -0.4;
+	e->x_range = e->x_max - e->x_min;
+	e->y_min = -(e->x_range) / 2 * e->img_height / e->img_width;
+	e->y_max = (e->x_range) / 2 * e->img_height / e->img_width;
+	e->max_iter = 30;
 }

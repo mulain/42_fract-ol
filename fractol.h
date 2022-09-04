@@ -16,6 +16,7 @@
 # include "mlx/mlx.h"
 # include "libft/include/libft.h"
 # include <fcntl.h>
+# include <stdio.h> //REMOV DAT ASDASDASDASDASDASDASDASDASDASDASDASDASDASD
 
 typedef struct s_env
 {
@@ -32,8 +33,10 @@ typedef struct s_env
 	int		img_height;
 	double	x_min;
 	double	x_max;
+	double	x_range;
 	double	y_min;
 	double	y_max;
+	double	y_range;
 	double	x_mappd;
 	double	y_mappd;
 	int		r;
@@ -63,7 +66,7 @@ void	map_pxl(t_env *e, int x, int y);
 int		colorizer(t_env *e, int n);
 
 //put.c
-void	put_pixel(t_env *data, int x, int y, int color);
+void	put_pixel(t_env *e, int x, int y, int color);
 void	put_rectangle(t_env *e, int length, int height);
 void	put_circle(t_env *e, int x, int y, int r);
 void	put_circle_weird(t_env *e, int a, int b, int r);
