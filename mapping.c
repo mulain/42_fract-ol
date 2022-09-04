@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 18:05:22 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/04 15:42:41 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/04 18:51:34 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,18 +61,33 @@ int	colorizer(t_env *e, int n)
 	return (t << 24 | r << 16 | g << 8 | b);
 }
 
-/*
-Left	-> 1
-Up		-> 2
-Right	-> 3
-Down	-> 4
-*/
-void	move(t_env *e, int direction)
+void	move(t_env *e, int key)
 {
-	if (direction == 1)
+	e->movestep = e->x_range / 100;
+	if (key == KEY_LEFT)
 	{
-		e->x_min += e->zoomstep;
-		e->x_max += e->zoomstep;
+		e->x_min -= e->movestep;
+		e->x_max -= e->movestep;
+	}
+	if (key == KEY_RIGHT)
+	{
+		e->x_min += e->movestep;
+		e->x_max += e->movestep;
+	}
+	if (key == KEY_UP)
+	{
+		e->y_min -= e->movestep;
+		e->y_max -= e->movestep;
+	}
+	if (key == KEY_DOWN)
+	{
+		e->y_min += e->movestep;
+		e->y_max += e->movestep;
 	}
 	draw_img(e);
 }
+
+/* void	zoom(t_env *e, int mouse_x, int mouse_y)
+{
+
+} */

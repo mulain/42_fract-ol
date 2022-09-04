@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:46:14 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/04 15:39:29 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/04 18:31:44 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(int argc, char **argv)
 
 	mlx_key_hook(e.win, keypress, &e);
 	mlx_hook(e.win, 17, 0L << 0, my_exit, NULL);
+	mlx_mouse_hook(e.win, mouse_action, &e);
 	mlx_loop(e.mlx);
 }
 

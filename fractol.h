@@ -39,6 +39,9 @@ typedef struct s_env
 	double	y_range;
 	double	zoomstep;
 	double	movestep;
+	int		mouse_x;
+	int		mouse_y;
+	int		mouse_button;
 	double	x_mappd;
 	double	y_mappd;
 	int		r;
@@ -67,6 +70,7 @@ int		mandelnoob(t_env *e);
 void	map_pxl(t_env *e, int x, int y);
 void	draw_img(t_env *e);
 int		colorizer(t_env *e, int n);
+void	move(t_env *e, int direction);
 
 //put.c
 void	put_pixel(t_env *e, int x, int y, int color);
@@ -80,6 +84,7 @@ int		add_transparency(unsigned char i, int color);
 //management.c
 int		my_exit(int failure);
 int		keypress(int key, t_env *e);
+int		mouse_action(int button, int mouse_x, int mouse_y, t_env *e);
 
 //setup.c
 void	errorcheck(int argc, char **argv);
