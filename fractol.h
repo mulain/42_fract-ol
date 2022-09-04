@@ -16,7 +16,7 @@
 # include "mlx/mlx.h"
 # include "libft/include/libft.h"
 # include <fcntl.h>
-# include <stdio.h> //REMOV DAT ASDASDASDASDASDASDASDASDASDASDASDASDASDASD
+# include <stdio.h>
 
 typedef struct s_env
 {
@@ -37,6 +37,8 @@ typedef struct s_env
 	double	y_min;
 	double	y_max;
 	double	y_range;
+	double	zoomstep;
+	double	movestep;
 	double	x_mappd;
 	double	y_mappd;
 	int		r;
@@ -63,6 +65,7 @@ int		mandelnoob(t_env *e);
 
 //mapping.c
 void	map_pxl(t_env *e, int x, int y);
+void	draw_img(t_env *e);
 int		colorizer(t_env *e, int n);
 
 //put.c

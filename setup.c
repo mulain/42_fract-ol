@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:17:28 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/04 10:25:23 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/04 15:35:03 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,8 @@ void	set_env(t_env *e, char **argv)
 	e->x_range = e->x_max - e->x_min;
 	e->y_min = -(e->x_range) / 2 * e->img_height / e->img_width;
 	e->y_max = (e->x_range) / 2 * e->img_height / e->img_width;
-	e->max_iter = 30;
+	e->y_range = e->y_max - e->y_min;
+	e->max_iter = 100;
+	e->zoomstep = 0.2;
+	e->movestep = 0.1;
 }

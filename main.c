@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:46:14 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/04 13:06:33 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/04 15:39:29 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,41 +15,30 @@
 int	main(int argc, char **argv)
 {
 	t_env		e;
-	int			x;
-	int			y;
 
 	errorcheck(argc, argv);
 	set_env(&e, argv);
 	//sierpcircle(&e, e.img_width / 2, e.img_height / 2, 400);
-	y = 0;
-	while (y < e.img_height)
+	draw_img(&e);
+
+	mlx_key_hook(e.win, keypress, &e);
+	mlx_hook(e.win, 17, 0L << 0, my_exit, NULL);
+	mlx_loop(e.mlx);
+}
+
+/*
+y = 0;
+	while (y < e->img_height)
 	{
 		x = 0;
-		while (x < e.img_width)
+		while (x < e->img_width)
 		{
 			put_pixel(&e, x, y, 0x00FFFFFF);
 			x++;
 		}
 		y++;
 	}
-	y = 0;
-	while (y < e.img_height)
-	{
-		x = 0;
-		while (x < e.img_width)
-		{
-			map_pxl(&e, x, y);
-			put_pixel(&e, x, y, e.f(&e));
-			x++;
-		}
-		y++;
-	}
-	mlx_put_image_to_window(e.mlx, e.win, e.img, 0, 0);
-	mlx_key_hook(e.win, keypress, &e);
-	mlx_hook(e.win, 17, 0L << 0, my_exit, NULL);
-	//mlx_hook(e.win, 17, 0L << 0, zoom, NULL);
-	mlx_loop(e.mlx);
-}
+*/
 
 /* int	main_save(int argc, char **argv)
 {
