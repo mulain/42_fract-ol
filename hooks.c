@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   management.c                                       :+:      :+:    :+:   */
+/*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:41:46 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/04 19:34:31 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/05 14:50:37 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	keypress(int key, t_env *e)
+int	keyhook(int key, t_env *e)
 {
 	if (key == KEY_ESC)
 	{
@@ -26,31 +26,23 @@ int	keypress(int key, t_env *e)
 }
 
 /*
-Left mousebutton: 1
-Right mousebutton: 2
-Middle mousebutton: 3 (apple mouse doesn't have it)
-Scroll up: 5
-Scroll down: 4
-Scroll left: 7
-Scroll right: 6
+Left mousebutton: 1		-> Zoom in
+Right mousebutton: 2	-> Zoom out (on Linux this is middle button)
+Middle mousebutton: 3	-> No action (on Linux this is right button)
+Scroll up: 5			-> Zoom in
+Scroll down: 4			-> Zoom out
+Scroll left: 7			-> No action
+Scroll right: 6			-> No action
 */
-int	mouse_action(int button, int mouse_x, int mouse_y, t_env *e)
+int	mousehook(int button, int mouse_x, int mouse_y, t_env *e)
 {
+	ft_printf("mousebutton:%i\n", button);
 	e->mouse_x = mouse_x;
 	e->mouse_y = mouse_y;
 	e->mouse_button = button;
-	if (button == 1 || button == 4)
+	if (button == 1 || button == 5)
 		zoom(e, 1);
+	if (button == 2 || button == 4)
+		zoom(e, 0);
 	return (0);
-}
-
-int	my_exit(int failure)
-{
-	if (failure)
-	{
-		ft_printf("Exit on error.\n");
-		exit(1);
-	}
-	ft_printf("Exit.\n");
-	exit(0);
 }

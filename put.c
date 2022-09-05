@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 15:57:07 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/03 08:10:37 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/05 14:58:09 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,7 @@ void	put_circle_weird(t_env *e, int a, int b, int r)
 	}
 }
 
-void	put_circle2(t_env *e, int a, int b, int r)
+/* void	put_circle2(t_env *e, int a, int b, int r)
 {
 	int		x;
 	int		y;
@@ -165,3 +165,4 @@ void	put_circle2(t_env *e, int a, int b, int r)
 		y++;
 	}
 }
+ */

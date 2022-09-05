@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:12:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/04 13:01:38 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/05 14:29:04 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ Zn_1 = Zn_0 * Zn_0 + c
 */
 int	mandelbrot(t_env *e)
 {
+	int		n;
 	double	x;
 	double	y;
-	int		n;
 	double	temp;
 
 	n = 0;

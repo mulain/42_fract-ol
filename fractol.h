@@ -37,8 +37,8 @@ typedef struct s_env
 	double	y_min;
 	double	y_max;
 	double	y_range;
-	double	zoomstep;
-	double	movestep;
+	double	zoomfactor;
+	double	movefactor;
 	int		mouse_x;
 	int		mouse_y;
 	int		mouse_button;
@@ -60,11 +60,14 @@ typedef struct s_env
 	int		(*f)();
 }	t_env;
 
+//main.c
+int		main(int argc, char **argv);
+int		my_exit(int failure);
+
 //fractals.c
 int		mandelbrot(t_env *e);
 int		sierpcircle(t_env *e, int x, int y, int r);
 int		sierpcircle_weird(t_env *e, int x, int y, int r);
-int		mandelnoob(t_env *e);
 
 //mapping.c
 void	map_pxl(t_env *e, int x, int y);
@@ -83,10 +86,9 @@ void	put_circle_weird(t_env *e, int a, int b, int r);
 //mod_01.c
 int		add_transparency(unsigned char i, int color);
 
-//management.c
-int		my_exit(int failure);
-int		keypress(int key, t_env *e);
-int		mouse_action(int button, int mouse_x, int mouse_y, t_env *e);
+//hooks.c
+int		keyhook(int key, t_env *e);
+int		mousehook(int button, int mouse_x, int mouse_y, t_env *e);
 
 //setup.c
 void	errorcheck(int argc, char **argv);

@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:17:28 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/04 19:38:01 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/05 14:40:46 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	errorcheck(int argc, char **argv)
 
 	if (argc != 4)
 		error_msg("Incorrect number of parameters.");
-	if (argv[1][1] ||!ft_strchr("MJSN", (int)argv[1][0]))
+	if (argv[1][1] ||!ft_strchr("MJS", (int)argv[1][0]))
 		error_msg("Incorrect fractal selection.");
 	if (!ft_isnumberformat(argv[2]) || !ft_isnumberformat(argv[3]))
 		error_msg("Incorrect window dimension.");
@@ -64,7 +64,7 @@ void	set_env(t_env *e, char **argv)
 	fractal = argv[1][0];
 	e->img_width = ft_atoi(argv[2]);
 	e->img_height = ft_atoi(argv[3]);
-	e->color = 0x00FFFFFF;
+	//e->color = 0x00FFFFFF;
 	e->mlx = mlx_init();
 	e->win = mlx_new_window(e->mlx, e->img_width, e->img_height, "fract'ol");
 	e->img = mlx_new_image(e->mlx, e->img_width, e->img_height);
@@ -74,14 +74,14 @@ void	set_env(t_env *e, char **argv)
 		e->f = mandelbrot;
 	if (fractal == 'S')
 		e->f = sierpcircle;
-	if (fractal == 'N')
-		e->f = mandelnoob;
 	e->x_min = -2.0;
 	e->x_max = e->x_min * -0.4;
 	e->x_range = e->x_max - e->x_min;
 	e->y_min = -(e->x_range) / 2 * e->img_height / e->img_width;
 	e->y_max = (e->x_range) / 2 * e->img_height / e->img_width;
 	e->y_range = e->y_max - e->y_min;
+	calc_xyranges(e);
 	e->max_iter = 100;
-	e->zoomstep = 0.1;
+	e->zoomfactor = 0.1;
+	e->movefactor = 0.1;
 }
