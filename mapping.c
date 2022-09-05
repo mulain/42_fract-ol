@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 18:05:22 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/05 14:38:31 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/05 15:09:03 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	move(t_env *e, int key)
 	double		movestep;
 
 	calc_xyranges(e);
-	movestep = e->x_range * e->movefactor;
+	movestep = e->y_range * e->movefactor;
 	if (key == KEY_LEFT)
 	{
 		e->x_max -= movestep;
