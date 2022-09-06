@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 15:57:07 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/05 14:58:09 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/05 18:44:27 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,38 @@ void	put_circle(t_env *e, int a, int b, int r)
 	int		thickness;
 
 	thickness = 1;
+	y = b - r - thickness;
+	if (y < 0)
+		y = 0;
+	while (y < b + r + thickness && y < e->img_height)
+	{
+		x = a - r - thickness;
+		if (x < 0)
+			x = 0;
+		while (x < a + r + thickness && x < e->img_width)
+		{
+			delta = (x - a) * (x - a) + (y - b) * (y - b) - r * r;
+			if (delta < r + r * thickness && delta > -(r + r * thickness))
+				put_pixel(e, x, y, e->color);
+			x++;
+		}
+		y++;
+	}
+}
+
+void	put_circle_new(t_env *e)
+{
+	int		x;
+	int		y;
+	int		delta;
+	int		thickness;
+
+	thickness = 1;
+	x = 0;
+	y = 0;
+	delta = (e->x_mappd - x) * (e->x_mappd - x) + (e->y_mappd - b) * (e->y_mappd - b) - r * r;
+
+
 	y = b - r - thickness;
 	if (y < 0)
 		y = 0;
