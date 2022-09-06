@@ -98,5 +98,6 @@ int		mousehook(int button, int mouse_x, int mouse_y, t_env *e);
 void	errorcheck(int argc, char **argv);
 int		error_msg(char *msg);
 void	set_env(t_env *e, char **argv);
+void	set_mlx(t_env *e);
 
 #endif

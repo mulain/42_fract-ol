@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:46:14 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/05 14:45:07 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/06 19:58:06 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@ int	main(int argc, char **argv)
 
 	errorcheck(argc, argv);
 	set_env(&e, argv);
-	//sierpcircle(&e, e.img_width / 2, e.img_height / 2, 400);
+	set_mlx(&e);
 	draw_img(&e);
-
 	mlx_key_hook(e.win, keyhook, &e);
 	mlx_hook(e.win, 17, 0L << 0, my_exit, NULL);
 	mlx_mouse_hook(e.win, mousehook, &e);

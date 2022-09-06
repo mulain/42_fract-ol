@@ -2,8 +2,8 @@
 Program requires the following parameters:
 
 1) Select fractal:        Mandelbrot: "M" | Julia: "J" | Sierpcircle "S"
-2) Define window width:   Must be an integer from 500 to 2000.
-3) Define window height:  Must be an integer from 500 to 1500.
+2) Select color scheme:
+3) Only Julia: select 
 
 Controls during program execution:
 Zoom in 			left mouse, mousewheel up
