@@ -5,4 +5,10 @@ Program requires the following parameters:
 2) Define window width:   Must be an integer from 500 to 2000.
 3) Define window height:  Must be an integer from 500 to 1500.
 
+Controls during program execution:
+Zoom in 			left mouse, mousewheel up
+Zoom out 			right mouse (middle mouse on Linux), mousewheel down
+incr. iterations	w
+decr. iterations	s
+
 Example: ./fractol M 1440 800

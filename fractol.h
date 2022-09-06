@@ -47,6 +47,9 @@ typedef struct s_env
 	int		r;
 	int		color;
 	int		max_iter;
+	int		min_iter;
+	int		iter;
+	int		iterstep;
 	int		maxcolor;
 	int		mincolor;
 	int		mincolor_t;
@@ -76,6 +79,7 @@ int		colorizer(t_env *e, int n);
 void	move(t_env *e, int direction);
 void	zoom(t_env *e, int zoom_in);
 void	calc_xyranges(t_env *e);
+void	mod_iter(t_env *e, int key);
 
 //put.c
 void	put_pixel(t_env *e, int x, int y, int color);
