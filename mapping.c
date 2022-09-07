@@ -6,21 +6,11 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 18:05:22 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/07 10:50:14 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/07 13:08:33 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-/*
-Before calling this, ranges must be correct.
-Run calc_xyranges before calling.
-*/
-void	map_pxl(t_env *e, int x, int y)
-{
-	e->x_mappd = e->x_min + x * e->x_range / e->img_width;
-	e->y_mappd = e->y_min + y * e->y_range / e->img_height;
-}
 
 void	draw_img(t_env *e)
 {
@@ -35,7 +25,7 @@ void	draw_img(t_env *e)
 		while (x < e->img_width)
 		{
 			map_pxl(e, x, y);
-			put_pixel(e, x, y, e->f(e));
+			put_pixel(e, x, y, e->fractal(e));
 			x++;
 		}
 		y++;
@@ -79,10 +69,4 @@ void	mod_iter(t_env *e, int key)
 			e->iter -= e->iterstep;
 	}
 	draw_img(e);
-}
-
-void	calc_xyranges(t_env *e)
-{
-	e->x_range = e->x_max - e->x_min;
-	e->y_range = e->y_max - e->y_min;
 }

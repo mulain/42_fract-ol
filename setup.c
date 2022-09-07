@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:17:28 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/07 12:40:13 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/07 13:24:52 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	errorcheck(int argc, char **argv)
 {
 	if (argc != 2)
 		error_msg("Incorrect number of parameters.");
-	if (argv[1][1] ||!ft_strchr("MJS", (int)argv[1][0]))
+	if (argv[1][1] || !ft_strchr("MJBSN", (int)argv[1][0]))
 		error_msg("Incorrect fractal selection.");
 }
 
@@ -39,7 +39,7 @@ void	errorcheck_windoversion(int argc, char **argv)
 
 	if (argc != 4)
 		error_msg("Incorrect number of parameters.");
-	if (argv[1][1] ||!ft_strchr("MJS", (int)argv[1][0]))
+	if (argv[1][1] || !ft_strchr("MJBS", (int)argv[1][0]))
 		error_msg("Incorrect fractal selection.");
 	if (!ft_isnumberformat(argv[2]) || !ft_isnumberformat(argv[3]))
 		error_msg("Incorrect window dimension.");
@@ -75,15 +75,19 @@ void	set_env(t_env *e, char **argv)
 	//e->color = 0x00FFFFFF;
 
 	if (fractal == 'M')
-		e->f = mandelbrot;
+		e->fractal = mandelbrot;
 	if (fractal == 'J')
 	{
-		e->f = julia;
+		e->fractal = julia;
 		e->julia_x = 0.28;
 		e->julia_y = 0.008;
 	}
+	if (fractal == 'B')
+		e->fractal = burningship;
 	if (fractal == 'S')
-		e->f = sierpcircle;
+		e->fractal = sierpcircle;
+	if (fractal == 'N')
+		e->fractal = mandelnoob;
 	e->x_min = -2.0;
 	e->x_max = e->x_min * -0.4;
 	e->x_range = e->x_max - e->x_min;

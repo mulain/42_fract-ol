@@ -63,7 +63,7 @@ typedef struct s_env
 	int		maxcolor_r;
 	int		maxcolor_g;
 	int		maxcolor_b;
-	int		(*f)();
+	int		(*fractal)();
 }	t_env;
 
 //main.c
@@ -73,15 +73,20 @@ int		my_exit(int failure);
 //fractals.c
 int		mandelbrot(t_env *e);
 int		julia(t_env *e);
+int		burningship(t_env *e);
 int		sierpcircle(t_env *e, int x, int y, int r);
+int		mandelnoob(t_env *e);
 int		sierpcircle_weird(t_env *e, int x, int y, int r);
 
 //mapping.c
-void	map_pxl(t_env *e, int x, int y);
 void	draw_img(t_env *e);
 int		colorizer(t_env *e, int n);
-void	calc_xyranges(t_env *e);
 void	mod_iter(t_env *e, int key);
+
+//calculations.c
+void	map_pxl(t_env *e, int x, int y);
+void	calc_xyranges(t_env *e);
+double	calc_absolute(double n);
 
 //navigation.c
 void	move(t_env *e, int direction);
