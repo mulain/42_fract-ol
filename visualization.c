@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mapping.c                                          :+:      :+:    :+:   */
+/*   visualization.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 18:05:22 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/07 13:08:33 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/07 17:16:21 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,73 @@ void	mod_iter(t_env *e, int key)
 			e->iter -= e->iterstep;
 	}
 	draw_img(e);
+}
+
+int	pixelizer42(int x, int y)
+{
+	int		x_mod;
+	int		y_mod;
+	int		color;
+	int		bckgr;
+
+	color = 0x00FFFFFF;
+	bckgr = 0x00000000;
+
+	x_mod = calc_absolute_int(x % 9);
+	y_mod = calc_absolute_int(y % 9);
+	//x_mod = x % 9;
+	//y_mod = y % 9;
+
+	if (y_mod == 0 || x_mod == 0 || y_mod == 1 || x_mod == 1)
+		return (bckgr);
+	if (x_mod > 0 && y_mod > 0)
+		return (pixelizer42_top_r(x_mod, y_mod));
+
+	if (x_mod == 2)
+	{
+		if (y_mod == 2 || y_mod == 3 || y_mod == 4 || y_mod == 5)
+			return (color);
+		return (bckgr);
+	}
+	if (x_mod == 3)
+	{
+		if (y_mod == 5)
+			return (color);
+		return (bckgr);
+	}
+	if (x_mod == 4)
+		return (color);
+	if (x_mod == 5)
+		return (bckgr);
+	if (x_mod == 6)
+	{
+		if (y_mod == 3 || y_mod == 4)
+			return (bckgr);
+		return (color);
+	}
+	if (x_mod == 7)
+	{
+		if (y_mod == 2 || y_mod == 5 || y_mod == 8)
+			return (color);
+		return (bckgr);
+	}
+	if (x_mod == 8)
+	{
+		if (y_mod == 6 || y_mod == 7)
+			return (bckgr);
+		return (color);
+	}
+	printf("x_mod:%i\n", x_mod);
+	return (0x0000FFFF);
+}
+
+int	pixelizer(int x, int y)
+{
+	//printf("x:%i\n", x);
+	//printf("y:%i\n", y);
+	if (y == 0 || x == 0)
+		return (0x00000000);
+	if (y % 8 == 0 || x % 8 == 0)
+		return (0x00000000);
+	return (0x00FFFFFF);
 }

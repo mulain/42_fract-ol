@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:17:28 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/07 13:24:52 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/07 15:57:41 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	errorcheck(int argc, char **argv)
 {
 	if (argc != 2)
 		error_msg("Incorrect number of parameters.");
-	if (argv[1][1] || !ft_strchr("MJBSN", (int)argv[1][0]))
+	if (argv[1][1] || !ft_strchr("MJBSNL", (int)argv[1][0]))
 		error_msg("Incorrect fractal selection.");
 }
 
@@ -88,6 +88,8 @@ void	set_env(t_env *e, char **argv)
 		e->fractal = sierpcircle;
 	if (fractal == 'N')
 		e->fractal = mandelnoob;
+	if (fractal == 'L')
+		e->fractal = mandelleet;
 	e->x_min = -2.0;
 	e->x_max = e->x_min * -0.4;
 	e->x_range = e->x_max - e->x_min;

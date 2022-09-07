@@ -76,17 +76,21 @@ int		julia(t_env *e);
 int		burningship(t_env *e);
 int		sierpcircle(t_env *e, int x, int y, int r);
 int		mandelnoob(t_env *e);
+int		mandelleet(t_env *e);
 int		sierpcircle_weird(t_env *e, int x, int y, int r);
 
-//mapping.c
+//visualization.c
 void	draw_img(t_env *e);
 int		colorizer(t_env *e, int n);
 void	mod_iter(t_env *e, int key);
+int		pixelizer(int x, int y);
+int		pixelizer42(int x, int y);
 
-//calculations.c
+//calculation.c
 void	map_pxl(t_env *e, int x, int y);
 void	calc_xyranges(t_env *e);
-double	calc_absolute(double n);
+double	calc_absolute_double(double n);
+int		calc_absolute_int(int n);
 
 //navigation.c
 void	move(t_env *e, int direction);

@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:12:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/07 13:37:34 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/07 16:52:04 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int	mandelbrot(t_env *e)
 		n++;
 	}
 	return (0);
-	//return (dickbutt);
 }
 
 int	julia(t_env *e)
@@ -74,7 +73,7 @@ int	burningship(t_env *e)
 	{
 		if (x * x + y * y > 4)
 			return (colorizer(e, n));
-		temp_y = calc_absolute(2 * x * y) + e->y_mappd;
+		temp_y = calc_absolute_double(2 * x * y) + e->y_mappd;
 		x = x * x - y * y + e->x_mappd;
 		y = temp_y;
 		n++;
@@ -102,6 +101,28 @@ int	mandelnoob(t_env *e)
 		n++;
 	}
 	return (0x000000099);
+}
+
+int	mandelleet(t_env *e)
+{
+	int		n;
+	double	x;
+	double	y;
+	double	temp_y;
+
+	n = 0;
+	x = 0;
+	y = 0;
+	while (n < e->iter)
+	{
+		if (x * x + y * y > 4)
+			return (colorizer(e, n));
+		temp_y = 2 * x * y + e->y_mappd;
+		x = x * x - y * y + e->x_mappd;
+		y = temp_y;
+		n++;
+	}
+	return (pixelizer42((int)(x * 10000), (int)(y * 10000)));
 }
 
 /*
