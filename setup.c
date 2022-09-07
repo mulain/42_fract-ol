@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:17:28 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/07 20:46:50 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/07 22:42:32 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,15 @@
 
 void	errorcheck(int argc, char **argv)
 {
-	if (argc != 2)
-		error_msg("Incorrect number of parameters.");
-	if (argv[1][1] || !ft_strchr("MJBSNL", (int)argv[1][0]))
-		error_msg("Incorrect fractal selection.");
-}
-
-int	error_msg(char *msg)
-{
-	int		fd;
-	char	*text[500];
-
-	ft_printf("Input error: %s\n", msg);
-	fd = open("help.txt", 0);
-	read(fd, text, 1000);
-	ft_printf("%s\n", text);
-	return (my_exit(1));
-}
-
-void	errorcheck_windoversion(int argc, char **argv)
-{
-	int		w;
-	int		h;
-
-	if (argc != 4)
-		error_msg("Incorrect number of parameters.");
-	if (argv[1][1] || !ft_strchr("MJBS", (int)argv[1][0]))
-		error_msg("Incorrect fractal selection.");
-	if (!ft_isnumberformat(argv[2]) || !ft_isnumberformat(argv[3]))
-		error_msg("Incorrect window dimension.");
-	w = ft_atoi(argv[2]);
-	h = ft_atoi(argv[3]);
-	if (w < 500 || w > 2000 || h < 500 || h > 1500)
-		error_msg("Incorrect window dimension.");
+	if (argv[1][1] || !ft_strchr("MJBSN", (int)argv[1][0]))
+		my_exit(1);
+	if (argv[1][0] == 'J')
+	{
+		if (argc != 4)
+			my_exit(1);
+	}
+	else if (argc != 3)
+		my_exit(1);
 }
 
 /*
@@ -57,7 +33,7 @@ range_x / img_width = range_y / img_height
 range_y = (range_x / img_width) * img_height
 y_max = y_min + (range_x / img_width) * img_height
 
-x axis is taken as fixex axis for window calculation.
+x axis is taken as fixed axis for window calculation.
 x axis 0 is moved to the right for mandelbrot, therefore
 x_max should be (around) 0.5 * abs(x_min)
 y axis is evenly divided, therefore y min and max are half
@@ -88,8 +64,6 @@ void	set_env(t_env *e, char **argv)
 		e->fractal = sierpcircle;
 	if (fractal == 'N')
 		e->fractal = mandelnoob;
-	if (fractal == 'L')
-		e->fractal = mandelleet;
 	e->x_min = -2.0;
 	e->x_max = e->x_min * -0.4;
 	e->x_range = e->x_max - e->x_min;
@@ -103,7 +77,7 @@ void	set_env(t_env *e, char **argv)
 	e->iterstep = 20;
 	e->zoomfactor = 0.1;
 	e->movefactor = 0.1;
-	e->inside_set = standard;
+	e->inside_set = black;
 }
 
 void	set_mlx(t_env *e)

@@ -86,10 +86,11 @@ int		colorizer(t_env *e, int n);
 int		pixelizer(int x, int y);
 
 //inside_set_1.c
-int		standard(int x, int y);
+int		black(int x, int y);
+int		white(int x, int y);
 int		pixelizer(int x, int y);
 
-//pixelizer42.c
+//inside_set_2.c
 int		pixelizer42(int x, int y);
 int		pixelizer42_rot_0(int x, int y, int color, int bckgr);
 int		pixelizer42_rot_neg90(int x, int y, int color, int bckgr);
@@ -124,10 +125,8 @@ void	zoom(t_env *e, int zoom_in);
 void	mod_inside_set(t_env *e);
 void	mod_iter(t_env *e, int key);
 
-
 //setup.c
 void	errorcheck(int argc, char **argv);
-int		error_msg(char *msg);
 void	set_env(t_env *e, char **argv);
 void	set_mlx(t_env *e);
 

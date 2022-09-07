@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:12:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/07 21:03:16 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/07 22:43:56 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,30 +97,7 @@ int	mandelnoob(t_env *e)
 		y = temp_y;
 		n++;
 	}
-	return (0x000000099);
-}
-
-int	mandelleet(t_env *e)
-{
-	int		n;
-	double	x;
-	double	y;
-	double	temp_y;
-
-	n = 0;
-	x = 0;
-	y = 0;
-	while (n < e->iter)
-	{
-		if (x * x + y * y > 4)
-			return (colorizer(e, n));
-		temp_y = 2 * x * y + e->y_mappd;
-		x = x * x - y * y + e->x_mappd;
-		y = temp_y;
-		n++;
-	}
-	return (pixelizer42((int)(x * 10000), (int)(y * 10000)));
-	//return (pixelizer42((int)(e->x_mappd * 10000), (int)(e->y_mappd * 10000)));
+	return (e->inside_set((int)(x * 10000), (int)(y * 10000)));
 }
 
 /*
