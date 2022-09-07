@@ -64,6 +64,7 @@ typedef struct s_env
 	int		maxcolor_g;
 	int		maxcolor_b;
 	int		(*fractal)();
+	int		(*inside_set)();
 }	t_env;
 
 //main.c
@@ -82,7 +83,10 @@ int		sierpcircle_weird(t_env *e, int x, int y, int r);
 //visualization.c
 void	draw_img(t_env *e);
 int		colorizer(t_env *e, int n);
-void	mod_iter(t_env *e, int key);
+int		pixelizer(int x, int y);
+
+//inside_set_1.c
+int		standard(int x, int y);
 int		pixelizer(int x, int y);
 
 //pixelizer42.c
@@ -98,10 +102,6 @@ void	calc_xyranges(t_env *e);
 double	calc_absolute_double(double n);
 int		calc_absolute_int(int n);
 
-//navigation.c
-void	move(t_env *e, int direction);
-void	zoom(t_env *e, int zoom_in);
-
 //put.c
 void	put_pixel(t_env *e, int x, int y, int color);
 void	put_pixel_guarded(t_env *e, int x, int y, int color);
@@ -115,6 +115,15 @@ int		add_transparency(unsigned char i, int color);
 //hooks.c
 int		keyhook(int key, t_env *e);
 int		mousehook(int button, int mouse_x, int mouse_y, t_env *e);
+
+//hook_nav.c
+void	move(t_env *e, int direction);
+void	zoom(t_env *e, int zoom_in);
+
+//hook_mod.c
+void	mod_inside_set(t_env *e);
+void	mod_iter(t_env *e, int key);
+
 
 //setup.c
 void	errorcheck(int argc, char **argv);

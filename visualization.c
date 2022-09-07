@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 18:05:22 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/07 18:05:04 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/07 20:50:09 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,30 +54,4 @@ int	colorizer(t_env *e, int n)
 	g = (e->maxcolor_g - e->mincolor_g) * n / e->max_iter + e->mincolor_g;
 	b = (e->maxcolor_b - e->mincolor_b) * n / e->max_iter + e->mincolor_b;
 	return (t << 24 | r << 16 | g << 8 | b);
-}
-
-void	mod_iter(t_env *e, int key)
-{
-	if (key == KEY_W)
-	{
-		if (e->iter < e->max_iter)
-			e->iter += e->iterstep;
-	}
-	else
-	{
-		if (e->iter > e->min_iter)
-			e->iter -= e->iterstep;
-	}
-	draw_img(e);
-}
-
-int	pixelizer(int x, int y)
-{
-	//printf("x:%i\n", x);
-	//printf("y:%i\n", y);
-	if (y == 0 || x == 0)
-		return (0x00000000);
-	if (y % 8 == 0 || x % 8 == 0)
-		return (0x00000000);
-	return (0x00FFFFFF);
 }

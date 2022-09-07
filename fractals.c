@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:12:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/07 19:06:21 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/07 21:03:16 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	mandelbrot(t_env *e)
 		y = temp_y;
 		n++;
 	}
-	return (0);
+	return (e->inside_set((int)(x * 10000), (int)(y * 10000)));
 }
 
 int	julia(t_env *e)

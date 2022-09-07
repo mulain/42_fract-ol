@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:41:46 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/07 11:54:23 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/07 20:55:05 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	keyhook(int key, t_env *e)
 		move(e, key);
 	if (key == KEY_W || key == KEY_S)
 		mod_iter(e, key);
+	if (key == KEY_I)
+		mod_inside_set(e);
 	ft_printf("key:%i\n", key);
 	return (0);
 }
