@@ -84,7 +84,13 @@ void	draw_img(t_env *e);
 int		colorizer(t_env *e, int n);
 void	mod_iter(t_env *e, int key);
 int		pixelizer(int x, int y);
+
+//pixelizer42.c
 int		pixelizer42(int x, int y);
+int		pixelizer42_rot_0(int x, int y, int color, int bckgr);
+int		pixelizer42_rot_neg90(int x, int y, int color, int bckgr);
+int		pixelizer42_rot_180(int x, int y, int color, int bckgr);
+int		pixelizer42_flip_hor(int x, int y, int color, int bckgr);
 
 //calculation.c
 void	map_pxl(t_env *e, int x, int y);

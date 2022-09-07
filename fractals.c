@@ -6,15 +6,12 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:12:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/07 16:52:04 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/07 19:06:21 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-/*
-Zn_1 = Zn_0 * Zn_0 + c
-*/
 int	mandelbrot(t_env *e)
 {
 	int		n;
@@ -123,6 +120,7 @@ int	mandelleet(t_env *e)
 		n++;
 	}
 	return (pixelizer42((int)(x * 10000), (int)(y * 10000)));
+	//return (pixelizer42((int)(e->x_mappd * 10000), (int)(e->y_mappd * 10000)));
 }
 
 /*
