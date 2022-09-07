@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:41:46 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/06 19:54:39 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/07 11:15:53 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ int	keyhook(int key, t_env *e)
 
 int	mousehook(int button, int mouse_x, int mouse_y, t_env *e)
 {
-	e->mouse_x = mouse_x;
-	e->mouse_y = mouse_y;
+	//e->mouse_x = mouse_x;
+	//e->mouse_y = mouse_y;
+	calc_xyranges(e);
+	map_pxl(e, mouse_x, mouse_y);
 	e->mouse_button = button;
 	if (button == MOUSE_LEFT || button == MOUSE_SCR_UP)
 		zoom(e, 1);

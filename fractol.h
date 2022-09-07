@@ -27,6 +27,7 @@ typedef struct s_env
 	void	*img;
 	char	*img_addr;
 	int		img_bpp;
+	int		img_bytespp;
 	int		img_line_length;
 	int		img_endian;
 	int		img_width;
@@ -76,13 +77,16 @@ int		sierpcircle_weird(t_env *e, int x, int y, int r);
 void	map_pxl(t_env *e, int x, int y);
 void	draw_img(t_env *e);
 int		colorizer(t_env *e, int n);
-void	move(t_env *e, int direction);
-void	zoom(t_env *e, int zoom_in);
 void	calc_xyranges(t_env *e);
 void	mod_iter(t_env *e, int key);
 
+//navigation.c
+void	move(t_env *e, int direction);
+void	zoom(t_env *e, int zoom_in);
+
 //put.c
 void	put_pixel(t_env *e, int x, int y, int color);
+void	put_pixel_guarded(t_env *e, int x, int y, int color);
 void	put_rectangle(t_env *e, int length, int height);
 void	put_circle(t_env *e, int x, int y, int r);
 void	put_circle_weird(t_env *e, int a, int b, int r);

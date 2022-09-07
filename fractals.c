@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:12:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/05 15:17:26 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/07 00:27:11 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	sierpcircle(t_env *e, int x, int y, int r)
 		sierpcircle(e, x, y + r * factor, r / 2);
 	}
 	put_circle(e, x, y, r);
-	return(1);
+	return (1);
 }
 
 int	sierpcircle_weird(t_env *e, int x, int y, int r)

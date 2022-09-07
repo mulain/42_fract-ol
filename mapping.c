@@ -6,15 +6,18 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 18:05:22 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/05 15:21:47 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/07 10:50:14 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+/*
+Before calling this, ranges must be correct.
+Run calc_xyranges before calling.
+*/
 void	map_pxl(t_env *e, int x, int y)
 {
-	calc_xyranges(e);
 	e->x_mappd = e->x_min + x * e->x_range / e->img_width;
 	e->y_mappd = e->y_min + y * e->y_range / e->img_height;
 }
@@ -24,6 +27,7 @@ void	draw_img(t_env *e)
 	int		x;
 	int		y;
 
+	calc_xyranges(e);
 	y = 0;
 	while (y < e->img_height)
 	{
@@ -60,55 +64,6 @@ int	colorizer(t_env *e, int n)
 	g = (e->maxcolor_g - e->mincolor_g) * n / e->max_iter + e->mincolor_g;
 	b = (e->maxcolor_b - e->mincolor_b) * n / e->max_iter + e->mincolor_b;
 	return (t << 24 | r << 16 | g << 8 | b);
-}
-
-void	move(t_env *e, int key)
-{
-	double		movestep;
-
-	calc_xyranges(e);
-	movestep = e->y_range * e->movefactor;
-	if (key == KEY_LEFT)
-	{
-		e->x_max -= movestep;
-		e->x_min -= movestep;
-	}
-	if (key == KEY_RIGHT)
-	{
-		e->x_min += movestep;
-		e->x_max += movestep;
-	}
-	if (key == KEY_UP)
-	{
-		e->y_min -= movestep;
-		e->y_max -= movestep;
-	}
-	if (key == KEY_DOWN)
-	{
-		e->y_min += movestep;
-		e->y_max += movestep;
-	}
-	draw_img(e);
-}
-
-void	zoom(t_env *e, int zoom_in)
-{
-	calc_xyranges(e);
-	if (zoom_in)
-	{
-		e->x_min += e->x_range * e->zoomfactor;
-		e->x_max -= e->x_range * e->zoomfactor;
-		e->y_min += e->y_range * e->zoomfactor;
-		e->y_max -= e->y_range * e->zoomfactor;
-	}
-	else
-	{
-		e->x_min -= e->x_range * e->zoomfactor;
-		e->x_max += e->x_range * e->zoomfactor;
-		e->y_min -= e->y_range * e->zoomfactor;
-		e->y_max += e->y_range * e->zoomfactor;
-	}
-	draw_img(e);
 }
 
 void	mod_iter(t_env *e, int key)

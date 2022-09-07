@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:17:28 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/06 19:49:00 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/07 10:54:04 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,5 @@ void	set_mlx(t_env *e)
 	e->img = mlx_new_image(e->mlx, e->img_width, e->img_height);
 	e->img_addr = mlx_get_data_addr(e->img, &e->img_bpp, &e->img_line_length,
 			&e->img_endian);
+	e->img_bytespp = e->img_bpp / 8;
 }

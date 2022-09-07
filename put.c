@@ -6,13 +6,25 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 15:57:07 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/05 14:58:09 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/07 10:55:31 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
 void	put_pixel(t_env *e, int x, int y, int color)
+{
+	char	*pxl;
+
+	pxl = e->img_addr + (y * e->img_line_length + x * (e->img_bytespp));
+	*(unsigned int *)pxl = color;
+}
+
+/*
+This put_pixel is guarded and very slow. Shouldn't use in final
+build, mainly for troubleshooting.
+*/
+void	put_pixel_guarded(t_env *e, int x, int y, int color)
 {
 	char	*pxl;
 
