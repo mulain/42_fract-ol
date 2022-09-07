@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:17:28 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/07 10:54:04 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/07 12:40:13 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,12 @@ void	set_env(t_env *e, char **argv)
 
 	if (fractal == 'M')
 		e->f = mandelbrot;
+	if (fractal == 'J')
+	{
+		e->f = julia;
+		e->julia_x = 0.28;
+		e->julia_y = 0.008;
+	}
 	if (fractal == 'S')
 		e->f = sierpcircle;
 	e->x_min = -2.0;

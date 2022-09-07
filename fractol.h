@@ -45,6 +45,8 @@ typedef struct s_env
 	int		mouse_button;
 	double	x_mappd;
 	double	y_mappd;
+	double	julia_x;
+	double	julia_y;
 	int		r;
 	int		color;
 	int		max_iter;
@@ -70,6 +72,7 @@ int		my_exit(int failure);
 
 //fractals.c
 int		mandelbrot(t_env *e);
+int		julia(t_env *e);
 int		sierpcircle(t_env *e, int x, int y, int r);
 int		sierpcircle_weird(t_env *e, int x, int y, int r);
 

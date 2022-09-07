@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:41:46 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/07 11:15:53 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/07 11:54:23 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ int	keyhook(int key, t_env *e)
 
 int	mousehook(int button, int mouse_x, int mouse_y, t_env *e)
 {
-	//e->mouse_x = mouse_x;
-	//e->mouse_y = mouse_y;
 	calc_xyranges(e);
 	map_pxl(e, mouse_x, mouse_y);
 	e->mouse_button = button;

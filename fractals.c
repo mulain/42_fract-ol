@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:12:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/07 00:27:11 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/07 12:44:39 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,30 @@ int	mandelbrot(t_env *e)
 	return (0);
 	//return (dickbutt);
 }
+
+int	julia(t_env *e)
+{
+	int		n;
+	double	x;
+	double	y;
+	double	temp;
+
+	n = 0;
+	x = e->x_mappd;
+	y = e->y_mappd;
+	while (n < e->iter)
+	{
+		if (x * x + y * y > 4)
+			return (colorizer(e, n));
+		temp = 2 * x * y + e->julia_y;
+		x = x * x - y * y + e->julia_x;
+		y = temp;
+		n++;
+	}
+	return (0);
+	//return (dickbutt);
+}
+
 
 int	mandelnoob(t_env *e)
 {
