@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 08:52:46 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/08 09:12:48 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/08 10:00:33 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	check_general(int argc, char **argv)
 {
+	if (argc < 3 || argc > 4)
+		my_exit(1);
 	if (argv[1][1] || !ft_strchr("MJBSN", (int)argv[1][0]))
 		my_exit(1);
 	if (argv[2][1] || !ft_strchr("wrgb", (int)argv[2][0]))

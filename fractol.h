@@ -129,9 +129,13 @@ void	mod_iter(t_env *e, int key);
 void	check_general(int argc, char **argv);
 void	check_julia(int argc, char **argv);
 
-//setup.c
+//setup_1.c
 void	set_env(t_env *e, char **argv);
 void	set_mlx(t_env *e);
+void	set_vars_generic(t_env *e);
+void	set_vars_brot(t_env *e);
+
+//setup_2.c
 void	set_mandelbrot(t_env *e);
 void	set_julia(t_env *e, char set);
 

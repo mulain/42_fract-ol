@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 20:48:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/07 22:47:11 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/08 11:17:03 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	mod_inside_set(t_env *e)
 {
+	if (e->fractal != mandelbrot)
+		return ;
 	if (e->inside_set == black)
 	{
 		ft_printf("Pixels in set colored: white.\n");

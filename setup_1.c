@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   setup.c                                            :+:      :+:    :+:   */
+/*   setup_1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:17:28 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/08 09:43:03 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/08 11:33:43 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,27 @@ void	set_env(t_env *e, char **argv)
 		e->fractal = sierpcircle;
 	if (fractal == 'N')
 		e->fractal = mandelnoob;
+}
+
+void	set_vars_generic(t_env *e)
+{
+	e->x_min = -2.0;
+	e->x_max = -e->x_min;
+	e->x_range = e->x_max - e->x_min;
+	e->y_min = -(e->x_range) / 2 * e->img_height / e->img_width;
+	e->y_max = (e->x_range) / 2 * e->img_height / e->img_width;
+	e->y_range = e->y_max - e->y_min;
+	calc_xyranges(e);
+	e->max_iter = 200;
+	e->min_iter = 20;
+	e->iter = 100;
+	e->iterstep = 20;
+	e->zoomfactor = 0.1;
+	e->movefactor = 0.1;
+}
+
+void	set_vars_brot(t_env *e)
+{
 	e->x_min = -2.0;
 	e->x_max = e->x_min * -0.4;
 	e->x_range = e->x_max - e->x_min;
@@ -62,46 +83,6 @@ void	set_env(t_env *e, char **argv)
 	e->zoomfactor = 0.1;
 	e->movefactor = 0.1;
 	e->inside_set = black;
-}
-
-void	set_mandelbrot(t_env *e)
-{
-	e->fractal = mandelbrot;
-}
-
-void	set_julia(t_env *e, char set)
-{
-	e->fractal = julia;
-	if (set == '1')
-	{
-		e->julia_x = -0.79;
-		e->julia_y = 0.15;
-	}
-	if (set == '2')
-	{
-		e->julia_x = -0.162;
-		e->julia_y = 1.04;
-	}
-	if (set == '3')
-	{
-		e->julia_x = 0.3;
-		e->julia_y = -0.01;
-	}
-	if (set == '4')
-	{
-		e->julia_x = -1.476;
-		e->julia_y = 0;
-	}
-	if (set == '5')
-	{
-		e->julia_x = -0.12;
-		e->julia_y = 0.77;
-	}
-	if (set == '6')
-	{
-		e->julia_x = 0.28;
-		e->julia_y = 0.008;
-	}
 }
 
 void	set_mlx(t_env *e)

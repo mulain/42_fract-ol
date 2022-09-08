@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:46:14 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/08 09:11:41 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/08 10:09:52 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,14 @@ int	main(int argc, char **argv)
 int	my_exit(int failure)
 {
 	int		fd;
-	char	*text[500];
+	char	*text[1000];
+	int		readsize;
 
 	if (failure)
 	{
 		fd = open("help.txt", 0);
-		read(fd, text, 1000);
+		readsize = read(fd, text, 950);
+		ft_printf("%i\n", readsize);
 		ft_printf("%s\n", text);
 		exit(1);
 	}
