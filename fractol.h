@@ -138,5 +138,12 @@ void	set_vars_brot(t_env *e);
 //setup_2.c
 void	set_mandelbrot(t_env *e);
 void	set_julia(t_env *e, char set);
+void	set_julia2(t_env *e, char set);
+void	set_burningship(t_env *e);
+void	set_mandelnoob(t_env *e);
+
+//setup_3.c
+void	set_color(t_env *e, char color);
+void	set_color2(t_env *e, char color);
 
 #endif

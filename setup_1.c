@@ -6,12 +6,11 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:17:28 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/08 11:33:43 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/08 12:58:56 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
 
 /*
 Setting y_max:
@@ -36,14 +35,13 @@ void	set_env(t_env *e, char **argv)
 	fractal = argv[1][0];
 	e->img_width = 1400;
 	e->img_height = 800;
-	//e->color = 0x00FFFFFF;
-
+	set_color(e, argv[2][0]);
 	if (fractal == 'M')
 		set_mandelbrot(e);
 	if (fractal == 'J')
 		set_julia(e, argv[3][0]);
 	if (fractal == 'B')
-		e->fractal = burningship;
+		set_burningship(e);
 	if (fractal == 'S')
 		e->fractal = sierpcircle;
 	if (fractal == 'N')
@@ -59,9 +57,9 @@ void	set_vars_generic(t_env *e)
 	e->y_max = (e->x_range) / 2 * e->img_height / e->img_width;
 	e->y_range = e->y_max - e->y_min;
 	calc_xyranges(e);
-	e->max_iter = 200;
-	e->min_iter = 20;
-	e->iter = 100;
+	e->max_iter = 260;
+	e->min_iter = 60;
+	e->iter = 160;
 	e->iterstep = 20;
 	e->zoomfactor = 0.1;
 	e->movefactor = 0.1;
@@ -76,7 +74,7 @@ void	set_vars_brot(t_env *e)
 	e->y_max = (e->x_range) / 2 * e->img_height / e->img_width;
 	e->y_range = e->y_max - e->y_min;
 	calc_xyranges(e);
-	e->max_iter = 200;
+	e->max_iter = 260;
 	e->min_iter = 20;
 	e->iter = 100;
 	e->iterstep = 20;

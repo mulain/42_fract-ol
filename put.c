@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 15:57:07 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/07 10:55:31 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/08 13:06:51 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,6 @@ void	put_circle_weird(t_env *e, int a, int b, int r)
 			x = 0;
 		while (x < e->img_width)
 		{
-
 			delta = (x - a) * (x - a) + (y - b) * (y - b) - r * r;
 			if (delta < r + r * thickness && delta > -(r + r * thickness))
 				put_pixel(e, x, y, e->color);

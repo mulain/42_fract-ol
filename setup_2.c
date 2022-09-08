@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:30:49 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/08 12:02:39 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/08 13:06:59 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,15 @@ void	set_mandelbrot(t_env *e)
 }
 
 void	set_burningship(t_env *e)
-{ 
+{
 	e->fractal = burningship;
 	set_vars_generic(e);
+}
+
+void	set_mandelnoob(t_env *e)
+{
+	e->fractal = mandelnoob;
+	set_vars_brot(e);
 }
 
 void	set_julia(t_env *e, char set)
@@ -33,16 +39,22 @@ void	set_julia(t_env *e, char set)
 		e->julia_x = -0.79;
 		e->julia_y = 0.15;
 	}
-	if (set == '2')
+	else if (set == '2')
 	{
 		e->julia_x = -0.162;
 		e->julia_y = 1.04;
 	}
-	if (set == '3')
+	else if (set == '3')
 	{
 		e->julia_x = 0.3;
 		e->julia_y = -0.01;
 	}
+	else
+		set_julia2(e, set);
+}
+
+void	set_julia2(t_env *e, char set)
+{
 	if (set == '4')
 	{
 		e->julia_x = -1.476;

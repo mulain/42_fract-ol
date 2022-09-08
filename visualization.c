@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 18:05:22 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/07 20:50:09 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/08 12:48:57 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,6 @@ int	colorizer(t_env *e, int n)
 	int		g;
 	int		b;
 
-	//add middle gradient color
-	e->mincolor_t = 0;
-	e->maxcolor_t = 0;
-	e->mincolor_r = 0;
-	e->maxcolor_r = 255;
-	e->mincolor_g = 100;
-	e->maxcolor_g = 255;
-	e->mincolor_b = 200;
-	e->maxcolor_b = 255;
 	t = (e->maxcolor_t - e->mincolor_t) * n / e->max_iter + e->mincolor_t;
 	r = (e->maxcolor_r - e->mincolor_r) * n / e->max_iter + e->mincolor_r;
 	g = (e->maxcolor_g - e->mincolor_g) * n / e->max_iter + e->mincolor_g;
