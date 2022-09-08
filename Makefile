@@ -6,7 +6,7 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 17:11:14 by wmardin           #+#    #+#              #
-#    Updated: 2022/09/08 08:53:27 by wmardin          ###   ########.fr        #
+#    Updated: 2022/09/08 09:58:27 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,8 @@ else
 MLXFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 DEFINEFLAGS = 	-DKEY_ESC=53 -DKEY_LEFT=123 -DKEY_RIGHT=124 -DKEY_UP=126 -DKEY_DOWN=125\
 				-DKEY_W=13 -DKEY_A= -DKEY_S=1 -DKEY_D=2\
-				-DKEY_I=105\
-				-DKEY_C=105\
+				-DKEY_I=34\
+				-DKEY_C=8\
 				-DMOUSE_LEFT=1 -DMOUSE_RIGHT=2 -DMOUSE_SCR_UP=5 -DMOUSE_SCR_DOWN=4
 endif
 
