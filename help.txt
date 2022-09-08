@@ -2,7 +2,7 @@
 Program requires the following parameters:
 
 1) Select fractal
-   Mandelbrot: "M", Julia: "J", Sierpcircle "S"
+   Mandelbrot: "M", Julia: "J", Burning Ship "B", Sierpcircle "S"
 2) Select color scheme
    White "w", Red: "r", Green: "g", Blue: "b"
 3) Only Julia: select Mandelbrot coordinates

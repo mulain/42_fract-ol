@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:46:14 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/07 22:28:47 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/08 09:11:41 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_env		e;
 
-	errorcheck(argc, argv);
+	check_general(argc, argv);
 	set_env(&e, argv);
 	set_mlx(&e);
 	draw_img(&e);

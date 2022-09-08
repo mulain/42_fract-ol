@@ -6,24 +6,12 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:17:28 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/07 22:42:32 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/08 09:43:03 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	errorcheck(int argc, char **argv)
-{
-	if (argv[1][1] || !ft_strchr("MJBSN", (int)argv[1][0]))
-		my_exit(1);
-	if (argv[1][0] == 'J')
-	{
-		if (argc != 4)
-			my_exit(1);
-	}
-	else if (argc != 3)
-		my_exit(1);
-}
 
 /*
 Setting y_max:
@@ -51,13 +39,9 @@ void	set_env(t_env *e, char **argv)
 	//e->color = 0x00FFFFFF;
 
 	if (fractal == 'M')
-		e->fractal = mandelbrot;
+		set_mandelbrot(e);
 	if (fractal == 'J')
-	{
-		e->fractal = julia;
-		e->julia_x = 0.28;
-		e->julia_y = 0.008;
-	}
+		set_julia(e, argv[3][0]);
 	if (fractal == 'B')
 		e->fractal = burningship;
 	if (fractal == 'S')
@@ -78,6 +62,46 @@ void	set_env(t_env *e, char **argv)
 	e->zoomfactor = 0.1;
 	e->movefactor = 0.1;
 	e->inside_set = black;
+}
+
+void	set_mandelbrot(t_env *e)
+{
+	e->fractal = mandelbrot;
+}
+
+void	set_julia(t_env *e, char set)
+{
+	e->fractal = julia;
+	if (set == '1')
+	{
+		e->julia_x = -0.79;
+		e->julia_y = 0.15;
+	}
+	if (set == '2')
+	{
+		e->julia_x = -0.162;
+		e->julia_y = 1.04;
+	}
+	if (set == '3')
+	{
+		e->julia_x = 0.3;
+		e->julia_y = -0.01;
+	}
+	if (set == '4')
+	{
+		e->julia_x = -1.476;
+		e->julia_y = 0;
+	}
+	if (set == '5')
+	{
+		e->julia_x = -0.12;
+		e->julia_y = 0.77;
+	}
+	if (set == '6')
+	{
+		e->julia_x = 0.28;
+		e->julia_y = 0.008;
+	}
 }
 
 void	set_mlx(t_env *e)

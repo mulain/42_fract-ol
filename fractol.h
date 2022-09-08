@@ -125,9 +125,14 @@ void	zoom(t_env *e, int zoom_in);
 void	mod_inside_set(t_env *e);
 void	mod_iter(t_env *e, int key);
 
+//inputparsing.c
+void	check_general(int argc, char **argv);
+void	check_julia(int argc, char **argv);
+
 //setup.c
-void	errorcheck(int argc, char **argv);
 void	set_env(t_env *e, char **argv);
 void	set_mlx(t_env *e);
+void	set_mandelbrot(t_env *e);
+void	set_julia(t_env *e, char set);
 
 #endif

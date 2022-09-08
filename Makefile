@@ -6,7 +6,7 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 17:11:14 by wmardin           #+#    #+#              #
-#    Updated: 2022/09/07 23:09:04 by wmardin          ###   ########.fr        #
+#    Updated: 2022/09/08 08:53:27 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ endif
 
 NAME =	fractol
 SRC =	main.c\
+		inputparsing.c\
 		setup.c\
 		calculation.c visualization.c\
 		inside_set_1.c inside_set_2.c\
