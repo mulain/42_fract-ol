@@ -6,7 +6,7 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 17:11:14 by wmardin           #+#    #+#              #
-#    Updated: 2022/09/08 13:05:04 by wmardin          ###   ########.fr        #
+#    Updated: 2022/09/08 13:19:28 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,11 +34,11 @@ NAME =	fractol
 SRC =	main.c\
 		inputparsing.c\
 		setup_1.c setup_2.c setup_3.c\
-		calculation.c visualization.c\
+		calculation.c\
+		draw.c\
 		inside_set_1.c inside_set_2.c\
 		hooks.c hook_nav.c hook_mod.c\
-		fractals_1.c fractals_2.c\
-		put.c
+		fractals_1.c fractals_2.c
 
 %.o: %.c
 

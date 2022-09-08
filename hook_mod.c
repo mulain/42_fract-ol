@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 20:48:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/08 11:17:03 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/08 13:20:02 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,18 @@ void	mod_iter(t_env *e, int key)
 			e->iter -= e->iterstep;
 	}
 	ft_printf("max iterations: %i\n", e->iter);
+	draw_img(e);
+}
+
+void	mod_color(t_env *e)
+{
+	if (e->color_scheme == 'r')
+		set_color(e, 'g');
+	else if (e->color_scheme == 'g')
+		set_color(e, 'b');
+	else if (e->color_scheme == 'b')
+		set_color(e, 'd');
+	else if (e->color_scheme == 'd')
+		set_color(e, 'r');
 	draw_img(e);
 }

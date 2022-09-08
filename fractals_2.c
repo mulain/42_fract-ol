@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:12:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/08 13:05:45 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/08 13:21:43 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int	sierpcircle_weird(t_env *e, int x, int y, int r)
 		sierpcircle_weird(e, x + r * factor, y, r / 2);
 		sierpcircle_weird(e, x, y + r * factor, r / 2);
 	}
-	put_circle_weird(e, x, y, r);
+	//put_circle_weird(e, x, y, r);
 	return (1);
 }

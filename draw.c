@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   visualization.c                                    :+:      :+:    :+:   */
+/*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 18:05:22 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/08 12:48:57 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/08 13:20:58 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,14 @@ void	draw_img(t_env *e)
 		y++;
 	}
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
+}
+
+void	put_pixel(t_env *e, int x, int y, int color)
+{
+	char	*pxl;
+
+	pxl = e->img_addr + (y * e->img_line_length + x * (e->img_bytespp));
+	*(unsigned int *)pxl = color;
 }
 
 int	colorizer(t_env *e, int n)

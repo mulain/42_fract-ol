@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:12:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/08 13:05:58 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/08 13:21:21 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,6 @@ int	sierpcircle(t_env *e, int x, int y, int r)
 		sierpcircle(e, x + r * factor, y, r / 2);
 		sierpcircle(e, x, y + r * factor, r / 2);
 	}
-	put_circle(e, x, y, r);
+	//put_circle(e, x, y, r);
 	return (1);
 }
