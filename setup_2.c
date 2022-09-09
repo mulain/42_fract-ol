@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:30:49 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/08 13:06:59 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/08 21:52:33 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	set_julia(t_env *e, char set)
 		set_julia2(e, set);
 }
 
+//mlx->julia_const.x = -0.4;
+//mlx->julia_const.y = -0.59;
 void	set_julia2(t_env *e, char set)
 {
 	if (set == '4')

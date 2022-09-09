@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:17:28 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/08 12:58:56 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/09 13:18:37 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	set_env(t_env *e, char **argv)
 	char	fractal;
 
 	fractal = argv[1][0];
-	e->img_width = 1400;
-	e->img_height = 800;
+	e->img_width = 1080;
+	e->img_height = 580;
 	set_color(e, argv[2][0]);
 	if (fractal == 'M')
 		set_mandelbrot(e);
@@ -80,7 +80,7 @@ void	set_vars_brot(t_env *e)
 	e->iterstep = 20;
 	e->zoomfactor = 0.1;
 	e->movefactor = 0.1;
-	e->inside_set = black;
+	e->inside_set = white;
 }
 
 void	set_mlx(t_env *e)

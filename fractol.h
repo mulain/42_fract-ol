@@ -71,13 +71,14 @@ typedef struct s_env
 int		main(int argc, char **argv);
 int		my_exit(int failure);
 
-//fractals.c
+//fractals_1.c
 int		mandelbrot(t_env *e);
 int		julia(t_env *e);
 int		burningship(t_env *e);
 int		sierpcircle(t_env *e, int x, int y, int r);
 int		mandelnoob(t_env *e);
-int		mandelleet(t_env *e);
+
+//fractals_2.c
 int		sierpcircle_weird(t_env *e, int x, int y, int r);
 
 //draw.c
@@ -116,6 +117,7 @@ int		add_transparency(unsigned char i, int color);
 //hooks.c
 int		keyhook(int key, t_env *e);
 int		mousehook(int button, int mouse_x, int mouse_y, t_env *e);
+int		mouseup(int button, int mouse_x, int mouse_y, t_env *e);
 
 //hook_nav.c
 void	move(t_env *e, int direction);
