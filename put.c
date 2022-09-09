@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 15:57:07 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/08 13:20:47 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/09 13:45:44 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,23 +45,21 @@ Color is passed by the envelope.
 */
 void	put_rectangle(t_env *e, int length, int height)
 {
-	int		l;
-	int		h;
 	int		x;
 	int		y;
+	int		color;
 
 	x = 100;
 	y = 100;
-	h = 0;
-	while (h < height)
+	color = 0x00FFFFFF;
+	while (height > 0)
 	{
-		l = 0;
-		while (l < length)
+		while (length > 0)
 		{
-			put_pixel(e, x + l, y + h, e->color);
-			l++;
+			put_pixel(e, x + length, y + height, color);
+			length--;
 		}
-		h++;
+		height--;
 	}
 }
 
