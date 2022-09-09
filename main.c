@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:46:14 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/09 15:35:29 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/09 16:16:13 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 int	main(int argc, char **argv)
 {
 	//DEAL WITH MLX LEAKS
+	//implement nice colors
+	//implement sierpcircle
+	//implement gmaps style zoom
 
 	t_env		e;
 

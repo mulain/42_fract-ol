@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:41:46 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/09 16:03:27 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/09 16:25:57 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,9 @@ int	mouse_press(int button, int mouse_x, int mouse_y, t_env *e)
 		e->mouse_press_y = mouse_y;
 		return (0);
 	}
-	calc_xyranges(e);
-	map_pxl(e, mouse_x, mouse_y);
 	if (button == MOUSE_SCR_UP)
 		zoom(e, 1);
-	if (button == MOUSE_RIGHT || button == MOUSE_SCR_DOWN)
+	if (button == MOUSE_SCR_DOWN)
 		zoom(e, 0);
 	return (0);
 }
@@ -53,6 +51,7 @@ int	mouse_release(int button, int mouse_x, int mouse_y, t_env *e)
 	int		threshold;
 
 	threshold = 5;
+	map_pxl(e, mouse_x, mouse_y);
 	if (button == MOUSE_LEFT)
 	{
 		e->mouse_release_x = mouse_x;
@@ -63,5 +62,7 @@ int	mouse_release(int button, int mouse_x, int mouse_y, t_env *e)
 		else
 			move_mouse(e);
 	}
+	if (button == MOUSE_RIGHT)
+		zoom(e, 0);
 	return (1);
 }
