@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:30:49 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/08 21:52:33 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/09 18:57:31 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,10 @@ void	set_julia2(t_env *e, char set)
 	{
 		e->julia_x = 0.28;
 		e->julia_y = 0.008;
+	}
+	if (set == '7')
+	{
+		e->julia_x = -0.4;
+		e->julia_y = -0.59;
 	}
 }

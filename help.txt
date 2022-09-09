@@ -2,15 +2,15 @@
 Program requires the following parameters:
 
 1) Select fractal
-   Mandelbrot: "M", Julia: "J", Burning Ship "B", Sierpcircle "S"
+   Mandelbrot: "M", Julia: "J", Burning Ship "B", mandeln00b "N", Sierpcircle "S"
 2) Select color scheme
    Red: "r", Green: "g", Blue: "b", Dark "d"
-3) Only Julia: select Mandelbrot coordinates
-   Arabesque "1", Dimensional Rift "2", Anemone "3", Space Station "4", Prickly Pear "5", Gentle Tentacle "6"
-   Coordinates thanks to: https://www.karlsims.com/julia.html
+3) Only Julia: select Mandelbrot coordinate pair (thanks to: https://www.karlsims.com/julia.html)
+   Arabesque "1", Dimensional Rift "2", Anemone "3", Space Station "4", Prickly Pear "5", Gentle Tentacle "6", Romanesco "7"
+
 Examples:
-./fractol M w
-./fractol J w 1
+./fractol M r
+./fractol J d 1
 =======================================================================================
 Controls during program execution:
 Move                        Arrow keys or drag mouse
@@ -18,5 +18,6 @@ Zoom in                     left mouse, mousewheel up
 Zoom out                    right mouse, mousewheel down
 + iterations                w
 - iterations                s
-Change pattern inside set   i (only Mandelbrot and Mandelnoob)
+Change color scheme         c
+Change pattern inside set   i (only Mandelbrot and mandeln00b)
 =======================================================================================
