@@ -6,7 +6,7 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 17:11:14 by wmardin           #+#    #+#              #
-#    Updated: 2022/09/08 13:19:28 by wmardin          ###   ########.fr        #
+#    Updated: 2022/09/09 13:34:28 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,13 +40,16 @@ SRC =	main.c\
 		hooks.c hook_nav.c hook_mod.c\
 		fractals_1.c fractals_2.c
 
+BLUE = \033[94m
+COLOR_END = \033[0m
+
 %.o: %.c
 
 LIBFT = libft/libft.a
 
 $(NAME): $(LIBFT)
 	@$(CC) $(CFLAGS) $(SRC) $(MLXFLAGS) $(DEFINEFLAGS) $(LIBFT) -o $(NAME)
-	@echo '$(NAME) created.'
+	@echo "$(BLUE)$(NAME) created."
 
 $(LIBFT):
 	@make --no-print-directory -C ./libft
@@ -55,7 +58,7 @@ all: $(NAME)
 
 clean:
 	@$(RM) $(OBJ)
-	@echo 'clean performed.'
+	@echo "$(BLUE)clean performed."
 
 fclean: clean
 	@$(RM) $(NAME) $(LIBFT) a.out
