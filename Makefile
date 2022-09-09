@@ -6,7 +6,7 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 17:11:14 by wmardin           #+#    #+#              #
-#    Updated: 2022/09/09 13:34:28 by wmardin          ###   ########.fr        #
+#    Updated: 2022/09/09 13:36:55 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,13 +62,13 @@ clean:
 
 fclean: clean
 	@$(RM) $(NAME) $(LIBFT) a.out
-	@echo 'fclean performed.'
+	@echo "$(BLUE)fclean performed."
 
 re: fclean all
 
 noflag:
 	@$(CC) $(SRC) $(MLXFLAGS) $(DEFINEFLAGS) $(LIBFT) -o $(NAME)
-	@echo '$(NAME) created w/o error flags.'
+	@echo "$(BLUE)$(NAME) created w/o error flags."
 
 test:
 	@echo $(OS)
@@ -77,4 +77,4 @@ git:
 	git add .
 	git commit -m "auto add & push"
 	git push
-	@echo 'git auto add & push performed.'
+	@echo "$(BLUE)git auto add & push performed."
