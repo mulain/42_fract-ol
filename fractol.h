@@ -115,9 +115,9 @@ void	put_circle_weird(t_env *e, int a, int b, int r);
 int		add_transparency(unsigned char i, int color);
 
 //hooks.c
-int		keyhook(int key, t_env *e);
-int		mousehook(int button, int mouse_x, int mouse_y, t_env *e);
-int		mouseup(int button, int mouse_x, int mouse_y, t_env *e);
+int		key_release(int key, t_env *e);
+int		mouse_press(int button, int mouse_x, int mouse_y, t_env *e);
+int		mouse_release(int button, int mouse_x, int mouse_y, t_env *e);
 
 //hook_nav.c
 void	move(t_env *e, int direction);
