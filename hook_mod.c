@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 20:48:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/08 13:20:02 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/09 18:47:45 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	mod_inside_set(t_env *e)
 {
-	if (e->fractal != mandelbrot)
+	if (e->fractal != mandelbrot && e->fractal != mandelnoob)
 		return ;
 	if (e->inside_set == black)
 	{

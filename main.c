@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:46:14 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/09 16:16:13 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/09 18:29:47 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	my_exit(int failure)
 	if (failure)
 	{
 		fd = open("help.txt", 0);
-		readsize = read(fd, text, 950);
+		readsize = read(fd, text, 999);
 		ft_printf("%i\n", readsize);
 		ft_printf("%s\n", text);
 		exit(1);

@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:17:28 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/09 13:18:37 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/09 18:45:26 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,10 @@ void	set_env(t_env *e, char **argv)
 	if (fractal == 'S')
 		e->fractal = sierpcircle;
 	if (fractal == 'N')
+	{
 		e->fractal = mandelnoob;
+		set_vars_brot(e);
+	}
 }
 
 void	set_vars_generic(t_env *e)
@@ -67,8 +70,8 @@ void	set_vars_generic(t_env *e)
 
 void	set_vars_brot(t_env *e)
 {
-	e->x_min = -2.0;
-	e->x_max = e->x_min * -0.4;
+	e->x_min = -2.7;
+	e->x_max = e->x_min * -0.6;
 	e->x_range = e->x_max - e->x_min;
 	e->y_min = -(e->x_range) / 2 * e->img_height / e->img_width;
 	e->y_max = (e->x_range) / 2 * e->img_height / e->img_width;
