@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:30:49 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/09 18:57:31 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/09 21:10:05 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,18 @@ void	set_julia(t_env *e, char set)
 		e->julia_x = 0.3;
 		e->julia_y = -0.01;
 	}
-	else
-		set_julia2(e, set);
-}
-
-//mlx->julia_const.x = -0.4;
-//mlx->julia_const.y = -0.59;
-void	set_julia2(t_env *e, char set)
-{
-	if (set == '4')
+	else if (set == '4')
 	{
 		e->julia_x = -1.476;
 		e->julia_y = 0;
 	}
+	else
+		set_julia2(e, set);
+}
+
+void	set_julia2(t_env *e, char set)
+{
+
 	if (set == '5')
 	{
 		e->julia_x = -0.12;
@@ -76,5 +75,10 @@ void	set_julia2(t_env *e, char set)
 	{
 		e->julia_x = -0.4;
 		e->julia_y = -0.59;
+	}
+	if (set == '8')
+	{
+		e->julia_x = -1.05;
+		e->julia_y = 0.27;
 	}
 }

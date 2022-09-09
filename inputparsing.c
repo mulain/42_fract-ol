@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 08:52:46 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/09 18:58:13 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/09 21:07:16 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ void	check_julia(int argc, char **argv)
 {
 	if (argc != 4)
 		my_exit(1);
-	if (argv[3][1] || !ft_strchr("1234567", (int)argv[3][0]))
+	if (argv[3][1] || !ft_strchr("12345678", (int)argv[3][0]))
 		my_exit(1);
 }
