@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:41:46 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/09 13:17:21 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/09 14:48:53 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	keyhook(int key, t_env *e)
 
 int	mousehook(int button, int mouse_x, int mouse_y, t_env *e)
 {
+	printf("button:%i", button);
 	calc_xyranges(e);
 	map_pxl(e, mouse_x, mouse_y);
 	if (button == MOUSE_LEFT)
@@ -47,13 +48,13 @@ int	mousehook(int button, int mouse_x, int mouse_y, t_env *e)
 	return (0);
 }
 
-int		mouseup(int button, int mouse_x, int mouse_y, t_env *e)
+int	mouseup(int button, int mouse_x, int mouse_y, t_env *e)
 {
 	int		x;
 	int		y;
 
 	if (button != MOUSE_LEFT)
-		return(0);
+		return (0);
 	x = e->mouse_x;
 	y = e->mouse_y;
 	x = x - mouse_x;
@@ -63,5 +64,5 @@ int		mouseup(int button, int mouse_x, int mouse_y, t_env *e)
 	e->y_max += (double)y / (double)e->img_width * e->y_range;
 	e->y_min += (double)y / (double)e->img_width * e->y_range;
 	draw_img(e);
-	return(1);
+	return (1);
 }
