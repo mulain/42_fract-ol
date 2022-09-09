@@ -40,8 +40,10 @@ typedef struct s_env
 	double	y_range;
 	double	zoomfactor;
 	double	movefactor;
-	int		mouse_x;
-	int		mouse_y;
+	int		mouse_press_x;
+	int		mouse_press_y;
+	int		mouse_release_x;
+	int		mouse_release_y;
 	int		mouse_button;
 	double	x_mappd;
 	double	y_mappd;
@@ -120,7 +122,8 @@ int		mouse_press(int button, int mouse_x, int mouse_y, t_env *e);
 int		mouse_release(int button, int mouse_x, int mouse_y, t_env *e);
 
 //hook_nav.c
-void	move(t_env *e, int direction);
+void	move_key(t_env *e, int direction);
+void	move_mouse(t_env *e);
 void	zoom(t_env *e, int zoom_in);
 
 //hook_mod.c

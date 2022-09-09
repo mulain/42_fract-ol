@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   navigation.c                                       :+:      :+:    :+:   */
+/*   hook_nav.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 10:44:02 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/07 11:52:38 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/09 15:51:25 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	move(t_env *e, int key)
+void	move_key(t_env *e, int key)
 {
 	double		movestep;
 
@@ -41,12 +41,20 @@ void	move(t_env *e, int key)
 	draw_img(e);
 }
 
-/*
-printf("x_center:%f\n", x_center);
-	printf("y_center:%f\n", y_center);
-	printf("delta_x:%f\n", delta_x);
-	printf("delta_y:%f\n", delta_y);
-*/
+void	move_mouse(t_env *e)
+{
+	double		x_delta;
+	double		y_delta;
+
+	x_delta = e->mouse_press_x - e->mouse_release_x;
+	y_delta = e->mouse_press_y - e->mouse_release_y;
+	e->x_max += x_delta / e->img_width * e->x_range;
+	e->x_min += x_delta / e->img_width * e->x_range;
+	e->y_max += y_delta / e->img_height * e->y_range;
+	e->y_min += y_delta / e->img_height * e->y_range;
+	draw_img(e);
+}
+
 void	zoom(t_env *e, int zoom_in)
 {
 	double		delta_x;

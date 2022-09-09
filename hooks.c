@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:41:46 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/09 15:37:37 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/09 15:50:52 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	key_release(int key, t_env *e)
 		exit(0);
 	}
 	if (key == KEY_LEFT || key == KEY_UP || key == KEY_RIGHT || key == KEY_DOWN)
-		move(e, key);
+		move_key(e, key);
 	if (key == KEY_W || key == KEY_S)
 		mod_iter(e, key);
 	if (key == KEY_I)
@@ -35,9 +35,8 @@ int	mouse_press(int button, int mouse_x, int mouse_y, t_env *e)
 {
 	if (button == MOUSE_LEFT)
 	{
-		e->mouse_x = mouse_x;
-		e->mouse_y = mouse_y;
-
+		e->mouse_press_x = mouse_x;
+		e->mouse_press_y = mouse_y;
 	}
 	calc_xyranges(e);
 	map_pxl(e, mouse_x, mouse_y);
@@ -50,23 +49,11 @@ int	mouse_press(int button, int mouse_x, int mouse_y, t_env *e)
 
 int	mouse_release(int button, int mouse_x, int mouse_y, t_env *e)
 {
-	int		x;
-	int		y;
-
-	printf("hello\n");
-	if (button != MOUSE_LEFT)
+	if (button == MOUSE_LEFT)
 	{
-		printf("hello\n");
-		return (0);
+		e->mouse_release_x = mouse_x;
+		e->mouse_release_y = mouse_y;
+		move_mouse(e);
 	}
-	x = e->mouse_x;
-	y = e->mouse_y;
-	x = x - mouse_x;
-	y = y - mouse_y;
-	e->x_max += (double)x / (double)e->img_width * e->x_range;
-	e->x_min += (double)x / (double)e->img_width * e->x_range;
-	e->y_max += (double)y / (double)e->img_height * e->y_range;
-	e->y_min += (double)y / (double)e->img_height * e->y_range;
-	draw_img(e);
 	return (1);
 }
