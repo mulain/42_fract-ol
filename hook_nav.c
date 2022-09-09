@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 10:44:02 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/09 15:53:38 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/09 15:56:26 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ void	move_mouse(t_env *e)
 
 	x_delta = e->mouse_press_x - e->mouse_release_x;
 	y_delta = e->mouse_press_y - e->mouse_release_y;
-	if (x_delta < 5 && y_delta < 5)
-		return ;
 	e->x_max += x_delta / e->img_width * e->x_range;
 	e->x_min += x_delta / e->img_width * e->x_range;
 	e->y_max += y_delta / e->img_height * e->y_range;
