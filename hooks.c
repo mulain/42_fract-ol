@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:41:46 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/09 16:00:41 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/09 16:03:27 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ int	mouse_release(int button, int mouse_x, int mouse_y, t_env *e)
 	{
 		e->mouse_release_x = mouse_x;
 		e->mouse_release_y = mouse_y;
-		if (calc_absolute_int(e->mouse_button - e->mouse_release_x) < threshold)
+		if (calc_absolute_int(e->mouse_press_x - mouse_x) < threshold
+			&& calc_absolute_int(e->mouse_press_y - mouse_y < threshold))
 			zoom(e, 1);
 		else
 			move_mouse(e);

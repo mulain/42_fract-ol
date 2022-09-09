@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 10:44:02 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/09 15:56:26 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/09 16:08:08 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,10 @@ void	zoom(t_env *e, int zoom_in)
 	}
 	else
 	{
-		e->x_min -= e->x_range * e->zoomfactor - delta_x * factor;
-		e->x_max += e->x_range * e->zoomfactor + delta_x * factor;
-		e->y_min -= e->y_range * e->zoomfactor - delta_y * factor;
-		e->y_max += e->y_range * e->zoomfactor + delta_y * factor;
+		e->x_min -= e->x_range * e->zoomfactor + delta_x * factor;
+		e->x_max += e->x_range * e->zoomfactor - delta_x * factor;
+		e->y_min -= e->y_range * e->zoomfactor + delta_y * factor;
+		e->y_max += e->y_range * e->zoomfactor - delta_y * factor;
 	}
 	draw_img(e);
 }
