@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:41:46 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/09 21:03:16 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/10 07:57:12 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,19 @@ int	key_release(int key, t_env *e)
 
 int	mouse_press(int button, int mouse_x, int mouse_y, t_env *e)
 {
+	//dont forget to delete printf
+	map_pxl(e, mouse_x, mouse_y);
 	if (button == MOUSE_LEFT)
 	{
 		e->mouse_press_x = mouse_x;
 		e->mouse_press_y = mouse_y;
-		return (0);
 	}
 	if (button == MOUSE_SCR_UP)
 		zoom(e, 1);
 	if (button == MOUSE_SCR_DOWN)
 		zoom(e, 0);
 	if (button == MOUSE_MIDDLE)
-	{
-		map_pxl(e, mouse_x, mouse_y);
 		printf("mouse_x:%f\nmouse_y:%f\n", e->x_mappd, e->y_mappd);
-	}
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:17:28 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/09 18:45:26 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/10 07:48:43 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	set_vars_brot(t_env *e)
 	e->min_iter = 20;
 	e->iter = 100;
 	e->iterstep = 20;
-	e->zoomfactor = 0.1;
+	e->zoomfactor = 0.3;
 	e->movefactor = 0.1;
 	e->inside_set = white;
 }

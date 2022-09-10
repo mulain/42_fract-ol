@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 10:44:02 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/09 16:08:08 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/10 08:08:11 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,27 +57,19 @@ void	move_mouse(t_env *e)
 
 void	zoom(t_env *e, int zoom_in)
 {
-	double		delta_x;
-	double		delta_y;
-	double		factor;
-
-	factor = 0.33;
-	calc_xyranges(e);
-	delta_x = e->x_mappd - (e->x_min + e->x_max) / 2;
-	delta_y = e->y_mappd - (e->y_min + e->y_max) / 2;
 	if (zoom_in)
 	{
-		e->x_min += e->x_range * e->zoomfactor + delta_x * factor;
-		e->x_max -= e->x_range * e->zoomfactor - delta_x * factor;
-		e->y_min += e->y_range * e->zoomfactor + delta_y * factor;
-		e->y_max -= e->y_range * e->zoomfactor - delta_y * factor;
+		e->x_min += (e->x_mappd - e->x_min) * e->zoomfactor;
+		e->x_max -= (e->x_max - e->x_mappd) * e->zoomfactor;
+		e->y_min += (e->y_mappd - e->y_min) * e->zoomfactor;
+		e->y_max -= (e->y_max - e->y_mappd) * e->zoomfactor;
 	}
 	else
 	{
-		e->x_min -= e->x_range * e->zoomfactor + delta_x * factor;
-		e->x_max += e->x_range * e->zoomfactor - delta_x * factor;
-		e->y_min -= e->y_range * e->zoomfactor + delta_y * factor;
-		e->y_max += e->y_range * e->zoomfactor - delta_y * factor;
+		e->x_min -= (e->x_mappd - e->x_min) * e->zoomfactor;
+		e->x_max += (e->x_max - e->x_mappd) * e->zoomfactor;
+		e->y_min -= (e->y_mappd - e->y_min) * e->zoomfactor;
+		e->y_max += (e->y_max - e->y_mappd) * e->zoomfactor;
 	}
 	draw_img(e);
 }
