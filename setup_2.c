@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:30:49 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/09 21:10:05 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/10 08:13:28 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	set_julia(t_env *e, char set)
 
 void	set_julia2(t_env *e, char set)
 {
-
 	if (set == '5')
 	{
 		e->julia_x = -0.12;
