@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:41:46 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/10 07:57:12 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/10 09:41:12 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	key_release(int key, t_env *e)
 		mod_iter(e, key);
 	if (key == KEY_I)
 		mod_inside_set(e);
+	if (key == KEY_O)
+		mod_outside_set(e);
 	if (key == KEY_C)
 		mod_color(e);
 	ft_printf("key:%i\n", key);

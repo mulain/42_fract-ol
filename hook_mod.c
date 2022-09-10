@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 20:48:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/09 18:47:45 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/10 09:45:42 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,15 @@ void	mod_inside_set(t_env *e)
 	draw_img(e);
 }
 
+void	mod_outside_set(t_env *e)
+{
+	if (e->outside_set == colorizer1)
+		e->outside_set = colorizer2;
+	else if (e->outside_set == colorizer2)
+		e->outside_set = colorizer1;
+	draw_img(e);
+}
+
 void	mod_iter(t_env *e, int key)
 {
 	if (key == KEY_W)
@@ -56,6 +65,19 @@ void	mod_iter(t_env *e, int key)
 }
 
 void	mod_color(t_env *e)
+{
+	if (e->color_scheme == 'r')
+		set_color(e, 'g');
+	else if (e->color_scheme == 'g')
+		set_color(e, 'b');
+	else if (e->color_scheme == 'b')
+		set_color(e, 'd');
+	else if (e->color_scheme == 'd')
+		set_color(e, 'r');
+	draw_img(e);
+}
+
+void	mod_colorizer(t_env *e)
 {
 	if (e->color_scheme == 'r')
 		set_color(e, 'g');

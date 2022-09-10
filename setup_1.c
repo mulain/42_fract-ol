@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:17:28 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/10 07:48:43 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/10 09:19:50 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	set_vars_generic(t_env *e)
 	e->iterstep = 20;
 	e->zoomfactor = 0.1;
 	e->movefactor = 0.1;
+	e->outside_set = colorizer2;
 }
 
 void	set_vars_brot(t_env *e)
@@ -84,6 +85,7 @@ void	set_vars_brot(t_env *e)
 	e->zoomfactor = 0.3;
 	e->movefactor = 0.1;
 	e->inside_set = white;
+	e->outside_set = colorizer2;
 }
 
 void	set_mlx(t_env *e)

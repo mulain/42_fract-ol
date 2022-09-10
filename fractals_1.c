@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:12:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/09 18:35:58 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/10 09:28:37 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	mandelbrot(t_env *e)
 	while (n < e->iter)
 	{
 		if (x * x + y * y > 4)
-			return (colorizer(e, n));
+			return (e->outside_set(e, n));
 		temp_y = 2 * x * y + e->y_mappd;
 		x = x * x - y * y + e->x_mappd;
 		y = temp_y;
@@ -47,7 +47,7 @@ int	julia(t_env *e)
 	while (n < e->iter)
 	{
 		if (x * x + y * y > 4)
-			return (colorizer(e, n));
+			return (e->outside_set(e, n));
 		temp_y = 2 * x * y + e->julia_y;
 		x = x * x - y * y + e->julia_x;
 		y = temp_y;
@@ -69,7 +69,7 @@ int	burningship(t_env *e)
 	while (n < e->iter)
 	{
 		if (x * x + y * y > 4)
-			return (colorizer(e, n));
+			return (e->outside_set(e, n));
 		temp_y = calc_absolute_double(2 * x * y) + e->y_mappd;
 		x = x * x - y * y + e->x_mappd;
 		y = temp_y;
@@ -91,7 +91,7 @@ int	mandelnoob(t_env *e)
 	while (n < e->max_iter)
 	{
 		if (x * x - y * y > 4)
-			return (colorizer(e, n));
+			return (e->outside_set(e, n));
 		temp_y = 2 * x * y + e->y_mappd;
 		x = x * x - y * y + e->x_mappd - e->y_mappd;
 		y = temp_y;
