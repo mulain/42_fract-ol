@@ -20,6 +20,7 @@
 
 typedef struct s_env
 {
+	//mlx
 	void	*mlx;
 	void	*win;
 	int		win_width;
@@ -32,29 +33,35 @@ typedef struct s_env
 	int		img_endian;
 	int		img_width;
 	int		img_height;
+	//coordinates
 	double	x_min;
 	double	x_max;
 	double	x_range;
 	double	y_min;
 	double	y_max;
 	double	y_range;
+	double	x_mappd;
+	double	y_mappd;
+	//navigation
 	double	zoomfactor;
 	double	movefactor;
+	//mouse actions
 	int		mouse_press_x;
 	int		mouse_press_y;
 	int		mouse_release_x;
 	int		mouse_release_y;
 	int		mouse_button;
-	double	x_mappd;
-	double	y_mappd;
-	double	julia_x;
-	double	julia_y;
-	int		r;
-	char	color_scheme;
+	//iteration settings
 	int		max_iter;
 	int		min_iter;
 	int		iter;
 	int		iterstep;
+	//julia settings
+	double	julia_x;
+	double	julia_y;
+	//sierpcircle settings
+	double	r;
+	//color settings
 	int		maxcolor;
 	int		mincolor;
 	int		mincolor_t;
@@ -65,9 +72,8 @@ typedef struct s_env
 	int		maxcolor_r;
 	int		maxcolor_g;
 	int		maxcolor_b;
-	char	*color[20];
-	char	*outside[20];
-	char	*inside[20];
+	char	color_scheme;
+	//functions
 	int		(*fractal)();
 	int		(*outside_set)();
 	int		(*inside_set)();
@@ -81,7 +87,7 @@ int		my_exit(int failure);
 int		mandelbrot(t_env *e);
 int		julia(t_env *e);
 int		burningship(t_env *e);
-int		sierpcircle(t_env *e, int x, int y, int r);
+int		sierpcircle(t_env *e);
 int		mandelnoob(t_env *e);
 
 //fractals_2.c
