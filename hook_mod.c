@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 20:48:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/10 09:45:42 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/10 20:16:56 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,20 @@ void	mod_inside_set(t_env *e)
 void	mod_outside_set(t_env *e)
 {
 	if (e->outside_set == colorizer1)
+	{
 		e->outside_set = colorizer2;
+		ft_printf("Pixels outside set colored: wacky.\n");
+	}
 	else if (e->outside_set == colorizer2)
+	{
+		e->outside_set = colorizer3;
+		ft_printf("Pixels outside set colored: bernstein.\n");
+	}
+	else if (e->outside_set == colorizer3)
+	{
 		e->outside_set = colorizer1;
+		ft_printf("Pixels outside set colored: solid.\n");
+	}
 	draw_img(e);
 }
 
@@ -67,13 +78,26 @@ void	mod_iter(t_env *e, int key)
 void	mod_color(t_env *e)
 {
 	if (e->color_scheme == 'r')
+	{
 		set_color(e, 'g');
+		ft_printf("Base color: green\n");
+	}
 	else if (e->color_scheme == 'g')
+	{
 		set_color(e, 'b');
+		ft_printf("Base color: blue\n");
+	}
 	else if (e->color_scheme == 'b')
+	{
 		set_color(e, 'd');
+		ft_printf("Base color: dark (black)\n");
+	}
 	else if (e->color_scheme == 'd')
+	{
 		set_color(e, 'r');
+		ft_printf("Base color: red\n");
+	}
+	//param_info(e);
 	draw_img(e);
 }
 

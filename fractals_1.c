@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:12:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/10 09:28:37 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/10 19:34:12 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	julia(t_env *e)
 		y = temp_y;
 		n++;
 	}
-	return (0);
+	return (e->inside_set((int)(x * 10000), (int)(y * 10000)));
 }
 
 int	burningship(t_env *e)
@@ -75,7 +75,7 @@ int	burningship(t_env *e)
 		y = temp_y;
 		n++;
 	}
-	return (0);
+	return (e->inside_set((int)(x * 10000), (int)(y * 10000)));
 }
 
 int	mandelnoob(t_env *e)

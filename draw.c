@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 18:05:22 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/10 17:23:48 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/10 17:57:16 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,12 @@ void	put_pixel(t_env *e, int x, int y, int color)
 
 	pxl = e->img_addr + (y * e->img_line_length + x * (e->img_bytespp));
 	*(unsigned int *)pxl = color;
+}
+
+void	paraminfo(t_env *e)
+{
+	ft_printf("Base color: %s\n", e->color);
+	ft_printf("Inside set: %s\n", e->inside);
+	ft_printf("Outside set: %s\n", e->outside);
+	ft_printf("Max iterations: %i\n", e->max_iter);
 }

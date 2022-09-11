@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:17:28 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/10 09:19:50 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/11 10:35:43 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,13 @@ void	set_vars_generic(t_env *e)
 	e->y_range = e->y_max - e->y_min;
 	calc_xyranges(e);
 	e->max_iter = 260;
-	e->min_iter = 60;
+	e->min_iter = 20;
 	e->iter = 160;
 	e->iterstep = 20;
 	e->zoomfactor = 0.1;
 	e->movefactor = 0.1;
-	e->outside_set = colorizer2;
+	e->inside_set = white;
+	e->outside_set = colorizer1;
 }
 
 void	set_vars_brot(t_env *e)
