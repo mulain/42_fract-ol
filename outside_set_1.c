@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 17:23:54 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/11 10:56:37 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/12 18:44:22 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	colorizer1(t_env *e, int n)
 /*
 The generated colors are pretty random - resulting in overflow into t.
 To prevent this, a mask is used for return. If the mask is removed, there
-is an interesting overlay effect - but I didn't want it for this project.
+is an overlay effect - but I didn't want it for this project.
 */
 int	colorizer2(t_env *e, int n)
 {
@@ -54,7 +54,21 @@ int	colorizer3(t_env *e, int n)
 
 	ratio = (double)n / e->max_iter;
 	r = 9 * (1 - ratio) * ratio * ratio * ratio * 255;
-	g = 15 * ((1 - ratio) * (1 - ratio)) * ratio * ratio * 255;
+	g = 15 * (1 - ratio) * (1 - ratio) * ratio * ratio * 255;
 	b = 8.5 * (1 - ratio) * (1 - ratio) * (1 - ratio) * ratio * 255;
+	return (0x00 << 24 | r << 16 | g << 8 | b);
+}
+
+int	colorizer4(t_env *e, int n)
+{
+	int		r;
+	int		g;
+	int		b;
+	double	ratio;
+
+	ratio = (double)n / e->max_iter;
+	b = 9 * (1 - ratio) * ratio * ratio * ratio * 255;
+	g = 15 * (1 - ratio) * (1 - ratio) * ratio * ratio * 255;
+	r = 8.5 * (1 - ratio) * (1 - ratio) * (1 - ratio) * ratio * 255;
 	return (0x00 << 24 | r << 16 | g << 8 | b);
 }

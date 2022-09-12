@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 20:48:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/11 10:59:00 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/12 18:44:59 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,11 @@ void	mod_outside_set(t_env *e)
 		ft_printf("Pixels outside set colored: bernstein.\n");
 	}
 	else if (e->outside_set == colorizer3)
+	{
+		e->outside_set = colorizer4;
+		ft_printf("Pixels outside set colored: reverse bernstein.\n");
+	}
+	else if (e->outside_set == colorizer4)
 	{
 		e->outside_set = colorizer1;
 		ft_printf("Pixels outside set colored: solid.\n");

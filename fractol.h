@@ -114,6 +114,8 @@ int		pixelizer42_flip_hor(int x, int y, int color, int bckgr);
 int		colorizer1(t_env *e, int n);
 int		colorizer2(t_env *e, int n);
 int		colorizer3(t_env *e, int n);
+int		colorizer4(t_env *e, int n);
+int		colorizer5(t_env *e, int n);
 
 //calculation.c
 void	map_pxl(t_env *e, int x, int y);
