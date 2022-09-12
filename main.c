@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:46:14 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/10 08:08:56 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/12 19:30:04 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	main(int argc, char **argv)
 {
 	//DEAL WITH MLX LEAKS
-	//implement nice colors
 	//implement sierpcircle
 
 	t_env		e;

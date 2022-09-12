@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:17:28 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/12 18:46:45 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/12 19:16:21 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	set_vars_brot(t_env *e)
 	e->y_max = (e->x_range) / 2 * e->img_height / e->img_width;
 	e->y_range = e->y_max - e->y_min;
 	calc_xyranges(e);
-	e->max_iter = 260;
+	e->max_iter = 380;
 	e->min_iter = 20;
 	e->iter = 100;
 	e->iterstep = 20;

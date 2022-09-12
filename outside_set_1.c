@@ -6,12 +6,15 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 17:23:54 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/12 18:44:22 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/12 19:23:07 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+/*
+Solid colors.
+*/
 int	colorizer1(t_env *e, int n)
 {
 	int		t;
@@ -27,9 +30,10 @@ int	colorizer1(t_env *e, int n)
 }
 
 /*
-The generated colors are pretty random - resulting in overflow into t.
+Solid colors, but random overflow effects because n is multiplied with max_iter.
+There is overflow into t because of this.
 To prevent this, a mask is used for return. If the mask is removed, there
-is an overlay effect - but I didn't want it for this project.
+is an overlay / dopplerian effect when zooming in - but I didn't want it.
 */
 int	colorizer2(t_env *e, int n)
 {
@@ -45,6 +49,9 @@ int	colorizer2(t_env *e, int n)
 	return (0x00FFFFFF & (0x00 << 24 | r << 16 | g << 8 | b));
 }
 
+/*
+Bernstein color formula. Thanks to Anahit for showing me this!
+*/
 int	colorizer3(t_env *e, int n)
 {
 	int		r;
@@ -59,6 +66,9 @@ int	colorizer3(t_env *e, int n)
 	return (0x00 << 24 | r << 16 | g << 8 | b);
 }
 
+/*
+Bernstein, but r and b switched. For me, this is actually way bernsteinier!
+*/
 int	colorizer4(t_env *e, int n)
 {
 	int		r;

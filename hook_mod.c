@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 20:48:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/12 18:44:59 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/12 19:39:44 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	mod_outside_set(t_env *e)
 	if (e->outside_set == colorizer1)
 	{
 		e->outside_set = colorizer2;
-		ft_printf("Pixels outside set colored: wacky.\n");
+		ft_printf("Pixels outside set colored: candyland.\n");
 	}
 	else if (e->outside_set == colorizer2)
 	{

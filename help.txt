@@ -21,5 +21,5 @@ Zoom out                                      right mouse, mousewheel down
 - iterations                                  s
 Change base color                             c (only solid and wacky color schemes)
 Change coloring algorithm for inside set      i
-Change coloring algorithm for outside set     o
+Change coloring algorithm for outside set     o (Bernstein formula thanks to Anahit)
 =======================================================================================

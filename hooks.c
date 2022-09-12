@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:41:46 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/10 09:41:12 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/12 19:29:36 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,17 @@ int	key_release(int key, t_env *e)
 	return (0);
 }
 
+/*
+To retrieve mapped coordinates of the mouse (e.g. when looking for Julia sets),
+paste this:
+
+if (button == MOUSE_MIDDLE)
+		printf("mouse_x:%f\nmouse_y:%f\n", e->x_mappd, e->y_mappd);
+
+Can't keep it because printf is needed to print float.
+*/
 int	mouse_press(int button, int mouse_x, int mouse_y, t_env *e)
 {
-	//dont forget to delete printf
 	map_pxl(e, mouse_x, mouse_y);
 	if (button == MOUSE_LEFT)
 	{
@@ -46,8 +54,6 @@ int	mouse_press(int button, int mouse_x, int mouse_y, t_env *e)
 		zoom(e, 1);
 	if (button == MOUSE_SCR_DOWN)
 		zoom(e, 0);
-	if (button == MOUSE_MIDDLE)
-		printf("mouse_x:%f\nmouse_y:%f\n", e->x_mappd, e->y_mappd);
 	return (0);
 }
 
