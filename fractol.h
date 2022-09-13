@@ -95,14 +95,15 @@ int		burningship(t_env *e);
 int		mandelnoob(t_env *e);
 
 //fractals_2.c
-int		sierpcircle(t_env *e);
+int		sierpcircle(t_env *e, double a, double b, double r);
 int		sierpcircle_weird(t_env *e, int x, int y, int r);
 void	sierphelper(t_env *e, double r, double x, double y);
 
 //draw.c
 void	draw_pxl(t_env *e);
-void	draw_circ(t_env *e);
+void	draw_sierp(t_env *e);
 void	put_pixel(t_env *e, int x, int y, int color);
+void	put_circle(t_env *e, double a, double b, double r);
 
 //inside_set_1.c
 int		black(int x, int y);
@@ -132,7 +133,6 @@ int		calc_absolute_int(int n);
 //put.c
 void	put_pixel_guarded(t_env *e, int x, int y, int color);
 void	put_rectangle(t_env *e, int length, int height);
-void	put_circle(t_env *e, int x, int y, int r);
 void	put_circle_weird(t_env *e, int a, int b, int r);
 
 //mod_01.c
