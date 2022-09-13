@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 20:48:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/12 19:39:44 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/13 10:35:31 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ void	mod_color(t_env *e)
 		set_color(e, 'r');
 		ft_printf("Base color: red\n");
 	}
-	//param_info(e);
 	draw_img(e);
 }
 

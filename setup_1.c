@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:17:28 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/12 19:16:21 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/13 11:05:02 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	set_env(t_env *e, char **argv)
 	if (fractal == 'B')
 		set_burningship(e);
 	if (fractal == 'S')
-		e->fractal = sierpcircle;
+		set_sierpcircle(e);
 	if (fractal == 'N')
 	{
 		e->fractal = mandelnoob;
@@ -83,6 +83,24 @@ void	set_vars_brot(t_env *e)
 	e->min_iter = 20;
 	e->iter = 100;
 	e->iterstep = 20;
+	e->zoomfactor = 0.3;
+	e->movefactor = 0.1;
+	e->inside_set = white;
+	e->outside_set = colorizer1;
+}
+
+void	set_vars_sierpcircle(t_env *e)
+{
+	e->x_min = -10;
+	e->x_max = -e->x_min;
+	e->x_range = e->x_max - e->x_min;
+	e->y_min = -(e->x_range) / 2 * e->img_height / e->img_width;
+	e->y_max = (e->x_range) / 2 * e->img_height / e->img_width;
+	e->y_range = e->y_max - e->y_min;
+	calc_xyranges(e);
+	e->r_start = e->y_range * 0.75;
+	e->r_min = 20 * e->y_range / e->img_height;
+	e->line = 0.9 * e->y_range / e->img_height;
 	e->zoomfactor = 0.3;
 	e->movefactor = 0.1;
 	e->inside_set = white;

@@ -60,7 +60,9 @@ typedef struct s_env
 	double	julia_x;
 	double	julia_y;
 	//sierpcircle settings
-	double	r;
+	double	r_start;
+	double	r_min;
+	double	line;
 	//color settings
 	int		maxcolor;
 	int		mincolor;
@@ -158,6 +160,7 @@ void	set_env(t_env *e, char **argv);
 void	set_mlx(t_env *e);
 void	set_vars_generic(t_env *e);
 void	set_vars_brot(t_env *e);
+void	set_vars_sierpcircle(t_env *e);
 
 //setup_2.c
 void	set_mandelbrot(t_env *e);
@@ -167,6 +170,9 @@ void	set_burningship(t_env *e);
 void	set_mandelnoob(t_env *e);
 
 //setup_3.c
+void	set_sierpcircle(t_env *e);
+
+//setup_4.c
 void	set_color(t_env *e, char color);
 void	set_color2(t_env *e, char color);
 

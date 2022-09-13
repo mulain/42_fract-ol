@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:12:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/11 18:21:37 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/13 11:05:38 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,27 +103,21 @@ int	mandelnoob(t_env *e)
 /*
 Draws the Sierpinski Triangle - but using circles!
 */
-int	sierpcircle_old(t_env *e, int x, int y, int r)
-{
-	double		factor;
-
-	factor = 1;
-	if (r > 10)
-	{
-		sierpcircle_old(e, x - r * factor, y, r / 2);
-		sierpcircle_old(e, x + r * factor, y, r / 2);
-		sierpcircle_old(e, x, y + r * factor, r / 2);
-	}
-	//put_circle(e, x, y, r);
-	return (1);
-}
-
 int	sierpcircle(t_env *e)
 {
 	double		r;
+	//double		n;
+	double		a;
+	double		b;
+	double		delta;
 
-	r = 15;
-	if ((e->x_mappd * e->x_mappd) + (e->y_mappd * e->y_mappd) == r * r)
-		return (0);
-	return (1);
+	r = e->r_start;
+	//n = 0;
+	a = 0;
+	b = 0;
+	delta = (e->x_mappd - a) * (e->x_mappd - a)
+		+ (e->y_mappd - b) * (e->y_mappd - b) - r * r;
+	if (delta < r * e->line && delta > -(r * e->line))
+		return (0x00FFFFFF);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 15:57:07 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/09 13:45:44 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/13 10:27:22 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	put_circle(t_env *e, int a, int b, int r)
 		{
 			delta = (x - a) * (x - a) + (y - b) * (y - b) - r * r;
 			if (delta < r + r * thickness && delta > -(r + r * thickness))
-				put_pixel(e, x, y, e->color);
+				put_pixel(e, x, y, 0x00FFFFFF);
 			x++;
 		}
 		y++;
