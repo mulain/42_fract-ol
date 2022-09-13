@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:46:14 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/13 10:47:21 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/13 16:14:47 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	check_general(argc, argv);
 	set_env(&e, argv);
 	set_mlx(&e);
-	draw_img(&e);
+	e.draw(&e);
 	mlx_key_hook(e.win, key_release, &e);
 	mlx_hook(e.win, 17, 0L << 0, my_exit, NULL);
 	mlx_hook(e.win, 5, 1L << 3, mouse_release, &e);

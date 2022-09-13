@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:17:28 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/13 16:07:39 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/13 16:14:42 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	set_vars_generic(t_env *e)
 	e->iterstep = 20;
 	e->zoomfactor = 0.1;
 	e->movefactor = 0.1;
+	e->draw = draw_pxl;
 	e->inside_set = white;
 	e->outside_set = colorizer1;
 }
@@ -85,6 +86,7 @@ void	set_vars_brot(t_env *e)
 	e->iterstep = 20;
 	e->zoomfactor = 0.3;
 	e->movefactor = 0.1;
+	e->draw = draw_pxl;
 	e->inside_set = white;
 	e->outside_set = colorizer1;
 }
@@ -104,6 +106,7 @@ void	set_vars_sierpcircle(t_env *e)
 	e->factor = 0.66;
 	e->zoomfactor = 0.3;
 	e->movefactor = 0.1;
+	e->draw = draw_circ;
 	e->inside_set = white;
 	e->outside_set = colorizer1;
 }

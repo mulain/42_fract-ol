@@ -78,6 +78,7 @@ typedef struct s_env
 	int		maxcolor_b;
 	char	color_scheme;
 	//functions
+	void	(*draw)();
 	int		(*fractal)();
 	int		(*outside_set)();
 	int		(*inside_set)();
@@ -99,9 +100,9 @@ int		sierpcircle_weird(t_env *e, int x, int y, int r);
 void	sierphelper(t_env *e, double r, double x, double y);
 
 //draw.c
-void	draw_img(t_env *e);
+void	draw_pxl(t_env *e);
+void	draw_circ(t_env *e);
 void	put_pixel(t_env *e, int x, int y, int color);
-void	paraminfo(t_env *e);
 
 //inside_set_1.c
 int		black(int x, int y);

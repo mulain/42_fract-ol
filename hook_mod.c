@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 20:48:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/13 10:35:31 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/13 16:15:58 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	mod_inside_set(t_env *e)
 		ft_printf("Pixels in set colored: black.\n");
 		e->inside_set = black;
 	}
-	draw_img(e);
+	e->draw(e);
 }
 
 void	mod_outside_set(t_env *e)
@@ -59,7 +59,7 @@ void	mod_outside_set(t_env *e)
 		e->outside_set = colorizer1;
 		ft_printf("Pixels outside set colored: solid.\n");
 	}
-	draw_img(e);
+	e->draw(e);
 }
 
 void	mod_iter(t_env *e, int key)
@@ -75,7 +75,7 @@ void	mod_iter(t_env *e, int key)
 			e->iter -= e->iterstep;
 	}
 	ft_printf("max iterations: %i\n", e->iter);
-	draw_img(e);
+	e->draw(e);
 }
 
 void	mod_color(t_env *e)
@@ -100,7 +100,7 @@ void	mod_color(t_env *e)
 		set_color(e, 'r');
 		ft_printf("Base color: red\n");
 	}
-	draw_img(e);
+	e->draw(e);
 }
 
 void	mod_colorizer(t_env *e)
@@ -113,5 +113,5 @@ void	mod_colorizer(t_env *e)
 		set_color(e, 'd');
 	else if (e->color_scheme == 'd')
 		set_color(e, 'r');
-	draw_img(e);
+	e->draw(e);
 }
