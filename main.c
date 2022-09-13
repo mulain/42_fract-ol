@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:46:14 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/05 14:45:07 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/13 16:14:47 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,70 +14,37 @@
 
 int	main(int argc, char **argv)
 {
+	//DEAL WITH MLX LEAKS
+	//implement sierpcircle
+	//remove printf
+
 	t_env		e;
 
-	errorcheck(argc, argv);
+	check_general(argc, argv);
 	set_env(&e, argv);
-	//sierpcircle(&e, e.img_width / 2, e.img_height / 2, 400);
-	draw_img(&e);
-
-	mlx_key_hook(e.win, keyhook, &e);
+	set_mlx(&e);
+	e.draw(&e);
+	mlx_key_hook(e.win, key_release, &e);
 	mlx_hook(e.win, 17, 0L << 0, my_exit, NULL);
-	mlx_mouse_hook(e.win, mousehook, &e);
+	mlx_hook(e.win, 5, 1L << 3, mouse_release, &e);
+	mlx_mouse_hook(e.win, mouse_press, &e);
 	mlx_loop(e.mlx);
 }
 
 int	my_exit(int failure)
 {
+	int		fd;
+	char	text[1500];
+	int		readsize;
+
 	if (failure)
 	{
-		ft_printf("Exit on error.\n");
+		fd = open("help.txt", 0);
+		readsize = read(fd, text, 1500);
+		write(1, text, readsize);
+		write(1, "\n", 1);
 		exit(1);
 	}
 	ft_printf("Exit.\n");
 	exit(0);
 }
-
-/*
-y = 0;
-	while (y < e->img_height)
-	{
-		x = 0;
-		while (x < e->img_width)
-		{
-			put_pixel(&e, x, y, 0x00FFFFFF);
-			x++;
-		}
-		y++;
-	}
-*/
-
-/* int	main_save(int argc, char **argv)
-{
-	t_env		e;
-	int			x;
-	int			y;
-
-	errorcheck(argc, argv);
-	set_env(&e, argv);
-	//sierpcircle(&e, e.img_width / 2, e.img_height / 2, 400);
-	y = 0;
-	while (y < e.img_height)
-	{
-		x = 0;
-		while (x < e.img_width)
-		{
-			map_pxl(&e, x, y);
-			if (e.f(&e))
-				put_pixel(&e, x, y, 0x00FFFFFF);
-			else
-				put_pixel(&e, x, y, 0x00000000);
-			x++;
-		}
-		y++;
-	}
-	mlx_put_image_to_window(e.mlx, e.win, e.img, 0, 0);
-	mlx_key_hook(e.win, keypress, &e);
-	mlx_hook(e.win, 17, 0L << 0, my_exit, NULL);
-	mlx_loop(e.mlx);
-} */

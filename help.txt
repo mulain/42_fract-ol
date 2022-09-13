@@ -1,8 +1,25 @@
-
+=======================================================================================
 Program requires the following parameters:
 
-1) Select fractal:        Mandelbrot: "M" | Julia: "J" | Sierpcircle "S"
-2) Define window width:   Must be an integer from 500 to 2000.
-3) Define window height:  Must be an integer from 500 to 1500.
+1) Select fractal
+   Mandelbrot: "M", Julia: "J", Burning Ship "B", mandeln00b "N", Sierpcircle "S"
+2) Select base color for starting color scheme
+   Red: "r", Green: "g", Blue: "b", Dark "d"
+3) Only Julia: select Mandelbrot coordinate pair
+   (Credit for sets: 1 - 6: karlsims.com; 7: calcpad.blog, 8: own find)
+   Arabesque "1", Dimensional Rift "2", Anemone "3", Space Station "4", Prickly Pear "5", Gentle Tentacle "6", Romanesco "7", Slightest Touch "8"
 
-Example: ./fractol M 1440 800
+Examples:
+./fractol M r
+./fractol J d 1
+=======================================================================================
+Controls during program execution:
+Move                                          Arrow keys or drag mouse
+Zoom in                                       left mouse, mousewheel up
+Zoom out                                      right mouse, mousewheel down
++ iterations                                  w
+- iterations                                  s
+Change base color                             c (only solid and wacky color schemes)
+Change coloring algorithm for inside set      i
+Change coloring algorithm for outside set     o (Bernstein formula thanks to Anahit)
+=======================================================================================
