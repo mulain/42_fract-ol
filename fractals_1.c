@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:12:50 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/13 11:05:38 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/13 12:42:20 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,26 +98,4 @@ int	mandelnoob(t_env *e)
 		n++;
 	}
 	return (e->inside_set((int)(x * 10000), (int)(y * 10000)));
-}
-
-/*
-Draws the Sierpinski Triangle - but using circles!
-*/
-int	sierpcircle(t_env *e)
-{
-	double		r;
-	//double		n;
-	double		a;
-	double		b;
-	double		delta;
-
-	r = e->r_start;
-	//n = 0;
-	a = 0;
-	b = 0;
-	delta = (e->x_mappd - a) * (e->x_mappd - a)
-		+ (e->y_mappd - b) * (e->y_mappd - b) - r * r;
-	if (delta < r * e->line && delta > -(r * e->line))
-		return (0x00FFFFFF);
-	return (0);
 }

@@ -63,6 +63,7 @@ typedef struct s_env
 	double	r_start;
 	double	r_min;
 	double	line;
+	int		in_sierp;
 	//color settings
 	int		maxcolor;
 	int		mincolor;
@@ -89,11 +90,12 @@ int		my_exit(int failure);
 int		mandelbrot(t_env *e);
 int		julia(t_env *e);
 int		burningship(t_env *e);
-int		sierpcircle(t_env *e);
 int		mandelnoob(t_env *e);
 
 //fractals_2.c
+int		sierpcircle(t_env *e);
 int		sierpcircle_weird(t_env *e, int x, int y, int r);
+void	sierphelper(t_env *e, double r, double x, double y);
 
 //draw.c
 void	draw_img(t_env *e);
