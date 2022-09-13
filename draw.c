@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 18:05:22 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/13 16:38:48 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/13 21:26:59 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,34 +35,9 @@ void	draw_pxl(t_env *e)
 
 void	draw_sierp(t_env *e)
 {
-	sierpcircle(e, 0, 0, e->r_start);
-}
+	sierpcircle(e, e->img_width / 2, e->img_height / 2, e->r_start);
+	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 
-void	draw_circe(t_env *e, int a, int b, int r)
-{
-	int		x;
-	int		y;
-	int		delta;
-	int		thickness;
-
-	thickness = 1;
-	y = b - r - thickness;
-	if (y < 0)
-		y = 0;
-	while (y < b + r + thickness && y < e->img_height)
-	{
-		x = a - r - thickness;
-		if (x < 0)
-			x = 0;
-		while (x < a + r + thickness && x < e->img_width)
-		{
-			delta = (x - a) * (x - a) + (y - b) * (y - b) - r * r;
-			if (delta < r + r * thickness && delta > -(r + r * thickness))
-				put_pixel(e, x, y, 0x00FFFFFF);
-			x++;
-		}
-		y++;
-	}
 }
 
 void	put_pixel(t_env *e, int x, int y, int color)
@@ -88,26 +63,29 @@ also probaly segfault as the "previous" line will be outside of the allocated
 memory area of the image. However, a sufficiently negative x value in lower lines
 could jump up several lines and still segfault. Just saying.
 */
-void	put_circle(t_env *e, double a, double b, double r)
+void	put_circle(t_env *e, int a, int b, int r)
 {
-	int		x;
-	int		y;
-	int		delta;
-	int		thickness;
+	double		delta;
+	int			y;
+	int			x;
 
-	thickness = 1;
-	y = b - r - thickness;
+	e->a_mappd = a * e->x_range / e->img_width;
+	e->b_mappd = b * e->x_range / e->img_width;
+	e->r_mappd = r * e->x_range / e->img_width;
+	y = b - r - e->line;
 	if (y < 0)
 		y = 0;
-	while (y < b + r + thickness && y < e->img_height)
+	while (y < b + r + e->line && y < e->img_height)
 	{
-		x = a - r - thickness;
+		x = a - r - e->line;
 		if (x < 0)
 			x = 0;
-		while (x < a + r + thickness && x < e->img_width)
+		while (x < a + r + e->line && x < e->img_width)
 		{
-			delta = (x - a) * (x - a) + (y - b) * (y - b) - r * r;
-			if (delta < r + r * thickness && delta > -(r + r * thickness))
+			map_pxl(e, x, y);
+			delta = (e->x_mappd - e->a_mappd) * (e->x_mappd - e->a_mappd)
+				+ (e->y_mappd - e->b_mappd) * (e->y_mappd - e->b_mappd) - e->r_mappd * e->r_mappd;
+			if (delta < e->r_mappd * e->line && delta > -(e->r_mappd * e->line))
 				put_pixel(e, x, y, 0x00FFFFFF);
 			x++;
 		}

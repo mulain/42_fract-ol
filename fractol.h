@@ -60,10 +60,13 @@ typedef struct s_env
 	double	julia_x;
 	double	julia_y;
 	//sierpcircle settings
-	double	r_start;
-	double	r_min;
+	int		r_start;
+	int		r_min;
+	double	a_mappd;
+	double	b_mappd;
+	double	r_mappd;
 	double	factor;
-	double	line;
+	int		line;
 	int		in_sierp;
 	//color settings
 	int		maxcolor;
@@ -103,7 +106,7 @@ void	sierphelper(t_env *e, double r, double x, double y);
 void	draw_pxl(t_env *e);
 void	draw_sierp(t_env *e);
 void	put_pixel(t_env *e, int x, int y, int color);
-void	put_circle(t_env *e, double a, double b, double r);
+void	put_circle(t_env *e, int a, int b, int r);
 
 //inside_set_1.c
 int		black(int x, int y);
