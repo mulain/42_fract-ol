@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:17:28 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/13 12:11:05 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/13 16:07:39 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,9 @@ void	set_vars_sierpcircle(t_env *e)
 	e->y_range = e->y_max - e->y_min;
 	calc_xyranges(e);
 	e->r_start = e->y_range * 0.5;
-	e->r_min = 2 * e->y_range / e->img_height;
-	e->line = e->y_range / e->img_height;
+	e->r_min = 10 * e->y_range / e->img_height;
+	e->line = 2 * e->y_range / e->img_height;
+	e->factor = 0.66;
 	e->zoomfactor = 0.3;
 	e->movefactor = 0.1;
 	e->inside_set = white;

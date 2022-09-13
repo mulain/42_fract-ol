@@ -62,6 +62,7 @@ typedef struct s_env
 	//sierpcircle settings
 	double	r_start;
 	double	r_min;
+	double	factor;
 	double	line;
 	int		in_sierp;
 	//color settings
