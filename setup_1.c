@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:17:28 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/14 15:30:31 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/14 21:02:19 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ void	set_env(t_env *e, char **argv)
 	fractal = argv[1][0];
 	e->img_width = 1080;
 	e->img_height = 580;
-	set_color(e, argv[2][0]);
+	if (argv[1][0] != 'S')
+		set_color(e, argv[2][0]);
 	if (fractal == 'M')
 		set_mandelbrot(e);
 	if (fractal == 'J')
