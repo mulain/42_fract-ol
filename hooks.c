@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:41:46 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/13 10:35:45 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/14 15:06:22 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	key_release(int key, t_env *e)
 	if (key == KEY_ESC)
 	{
 		mlx_destroy_window(e->mlx, e->win);
-		exit(0);
+		my_exit(e, 0);
 	}
 	if (key == KEY_LEFT || key == KEY_UP || key == KEY_RIGHT || key == KEY_DOWN)
 		move_key(e, key);
@@ -54,8 +54,6 @@ int	mouse_press(int button, int mouse_x, int mouse_y, t_env *e)
 		zoom(e, 1);
 	if (button == MOUSE_SCR_DOWN)
 		zoom(e, 0);
-	if (button == MOUSE_MIDDLE)
-		printf("mouse_x:%f\nmouse_y:%f\n", e->x_mappd, e->y_mappd);
 	return (0);
 }
 

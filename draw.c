@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 18:05:22 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/13 21:30:26 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/14 12:30:22 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	draw_sierp(t_env *e)
 {
 	sierpcircle(e, e->img_width / 2, e->img_height / 2, e->r_start);
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
-
 }
 
 void	put_pixel(t_env *e, int x, int y, int color)

@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:35:29 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/13 16:36:25 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/14 15:08:13 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	sierphelper_slow(t_env *e, double r, double x, double y)
 		sierphelper_slow(e, r / 2, x, y + r * e->factor);
 	}
 	if ((e->x_mappd > x - r - e->line && e->x_mappd < x + r + e->line)
-			&& (e->y_mappd > y - r - e->line && e->y_mappd < y + r + e->line))
+		&& (e->y_mappd > y - r - e->line
+			&& e->y_mappd < y + r + e->line))
 	{
 		delta = (e->x_mappd - x) * (e->x_mappd - x)
 			+ (e->y_mappd - y) * (e->y_mappd - y) - r * r;
@@ -51,4 +52,20 @@ int	sierpcircle_slow(t_env *e)
 	if (e->in_sierp)
 		return (0x00FFFFFF);
 	return (0);
+}
+
+//serpcircle_weird(e, x, y - r * factor, r / 2);
+int	sierpcircle_weird(t_env *e, int x, int y, int r)
+{
+	double		factor;
+
+	factor = 0.66;
+	if (r > 5)
+	{
+		sierpcircle_weird(e, x - r * factor, y, r / 2);
+		sierpcircle_weird(e, x + r * factor, y, r / 2);
+		sierpcircle_weird(e, x, y + r * factor, r / 2);
+	}
+	//put_circle_weird(e, x, y, r);
+	return (1);
 }

@@ -89,7 +89,8 @@ typedef struct s_env
 
 //main.c
 int		main(int argc, char **argv);
-int		my_exit(int failure);
+int		my_exit(t_env *e, int failure);
+int		event_windowdestroy(t_env *e);
 
 //fractals_1.c
 int		mandelbrot(t_env *e);
@@ -98,7 +99,7 @@ int		burningship(t_env *e);
 int		mandelnoob(t_env *e);
 
 //fractals_2.c
-int		sierpcircle(t_env *e, double a, double b, double r);
+int		sierpcircle(t_env *e, int a, int b, int r);
 int		sierpcircle_weird(t_env *e, int x, int y, int r);
 void	sierphelper(t_env *e, double r, double x, double y);
 
@@ -159,8 +160,8 @@ void	mod_color(t_env *e);
 void	mod_colorizer(t_env *e);
 
 //inputparsing.c
-void	check_general(int argc, char **argv);
-void	check_julia(int argc, char **argv);
+void	check_general(t_env *e, int argc, char **argv);
+void	check_julia(t_env *e, int argc, char **argv);
 
 //setup_1.c
 void	set_env(t_env *e, char **argv);

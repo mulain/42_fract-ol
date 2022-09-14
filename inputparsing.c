@@ -6,30 +6,30 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 08:52:46 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/09 21:07:16 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/14 12:45:06 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	check_general(int argc, char **argv)
+void	check_general(t_env *e, int argc, char **argv)
 {
 	if (argc < 3 || argc > 4)
-		my_exit(1);
+		my_exit(e, 1);
 	if (argv[1][1] || !ft_strchr("MJBSN", (int)argv[1][0]))
-		my_exit(1);
+		my_exit(e, 1);
 	if (argv[2][1] || !ft_strchr("rgbd", (int)argv[2][0]))
-		my_exit(1);
+		my_exit(e, 1);
 	if (argv[1][0] == 'J')
-		check_julia(argc, argv);
+		check_julia(e, argc, argv);
 	else if (argc != 3)
-		my_exit(1);
+		my_exit(e, 1);
 }
 
-void	check_julia(int argc, char **argv)
+void	check_julia(t_env *e, int argc, char **argv)
 {
 	if (argc != 4)
-		my_exit(1);
+		my_exit(e, 1);
 	if (argv[3][1] || !ft_strchr("12345678", (int)argv[3][0]))
-		my_exit(1);
+		my_exit(e, 1);
 }
