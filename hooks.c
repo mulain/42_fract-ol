@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:41:46 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/14 15:06:22 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/14 21:10:40 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	key_release(int key, t_env *e)
 		mod_outside_set(e);
 	if (key == KEY_C)
 		mod_color(e);
-	ft_printf("key:%i\n", key);
 	return (0);
 }
 
