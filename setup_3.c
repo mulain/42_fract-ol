@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 10:39:23 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/13 10:42:33 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/14 15:12:29 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	set_sierpcircle(t_env *e)
 {
-	e->fractal = sierpcircle;
+	e->fractal = sierpcircle_slow;
 	set_vars_sierpcircle(e);
 }

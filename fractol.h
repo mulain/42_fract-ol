@@ -60,13 +60,13 @@ typedef struct s_env
 	double	julia_x;
 	double	julia_y;
 	//sierpcircle settings
-	int		r_start;
-	int		r_min;
+	double	r_start;
+	double	r_min;
 	double	a_mappd;
 	double	b_mappd;
 	double	r_mappd;
 	double	factor;
-	int		line;
+	double	line;
 	int		in_sierp;
 	//color settings
 	int		maxcolor;
@@ -102,6 +102,10 @@ int		mandelnoob(t_env *e);
 int		sierpcircle(t_env *e, int a, int b, int r);
 int		sierpcircle_weird(t_env *e, int x, int y, int r);
 void	sierphelper(t_env *e, double r, double x, double y);
+
+//fractals_save.c
+int		sierpcircle_slow(t_env *e);
+void	sierphelper_slow(t_env *e, double r, double x, double y);
 
 //draw.c
 void	draw_pxl(t_env *e);

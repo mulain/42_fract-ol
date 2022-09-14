@@ -6,7 +6,7 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 17:11:14 by wmardin           #+#    #+#              #
-#    Updated: 2022/09/13 10:39:06 by wmardin          ###   ########.fr        #
+#    Updated: 2022/09/14 15:13:43 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ SRC =	main.c\
 		inside_set_1.c inside_set_2.c\
 		outside_set_1.c\
 		hooks.c hook_nav.c hook_mod.c\
-		fractals_1.c fractals_2.c
+		fractals_1.c fractals_2.c fractals_save.c
 
 BLUE = \033[94m
 COLOR_END = \033[0m

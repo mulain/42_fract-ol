@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:35:29 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/14 15:08:13 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/14 15:18:43 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,7 @@ is insanely slow because of it.
 */
 int	sierpcircle_slow(t_env *e)
 {
-	/* int			n;
-	double		a;
-	double		b; */
-
 	e->in_sierp = 0;
-	/* n = 0;
-	a = 0;
-	b = 0; */
 	sierphelper_slow(e, e->r_start, 0, 0);
 	if (e->in_sierp)
 		return (0x00FFFFFF);
