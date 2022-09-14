@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 10:44:02 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/13 16:15:25 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/14 15:28:33 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,6 @@ void	zoom(t_env *e, int zoom_in)
 		e->y_max += (e->y_max - e->y_mappd) * e->zoomfactor;
 	}
 	e->r_min = 2 * e->y_range / e->img_height;
-	e->line = e->y_range / e->img_height;
+	e->line = 2 * e->y_range / e->img_height;
 	e->draw(e);
 }

@@ -99,19 +99,18 @@ int		burningship(t_env *e);
 int		mandelnoob(t_env *e);
 
 //fractals_2.c
-int		sierpcircle(t_env *e, int a, int b, int r);
-int		sierpcircle_weird(t_env *e, int x, int y, int r);
-void	sierphelper(t_env *e, double r, double x, double y);
-
-//fractals_save.c
 int		sierpcircle_slow(t_env *e);
 void	sierphelper_slow(t_env *e, double r, double x, double y);
+
+//fractals_save.c
+int		sierpcircle(t_env *e, int a, int b, int r);
+void	put_circle(t_env *e, int a, int b, int r);
+double	getdelta(t_env *e);
 
 //draw.c
 void	draw_pxl(t_env *e);
 void	draw_sierp(t_env *e);
 void	put_pixel(t_env *e, int x, int y, int color);
-void	put_circle(t_env *e, int a, int b, int r);
 
 //inside_set_1.c
 int		black(int x, int y);
@@ -142,9 +141,6 @@ int		calc_absolute_int(int n);
 void	put_pixel_guarded(t_env *e, int x, int y, int color);
 void	put_rectangle(t_env *e, int length, int height);
 void	put_circle_weird(t_env *e, int a, int b, int r);
-
-//mod_01.c
-int		add_transparency(unsigned char i, int color);
 
 //hooks.c
 int		key_release(int key, t_env *e);

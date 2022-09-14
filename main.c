@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:46:14 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/14 15:07:18 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/14 18:10:59 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	main(int argc, char **argv)
 {
-	//implement sierpcircle
 	t_env		e;
 
 	check_general(&e, argc, argv);
@@ -29,9 +28,9 @@ int	main(int argc, char **argv)
 }
 
 /*
-This is needed because the hookevent can only receive one parameter.
-That is needed for *e, so to also pass int failure we need to call another
-function...
+This is needed because the hookevent-function can only receive one parameter.
+That parameter is needed for t_env *e, so to also pass int failure this
+in-between function is required.
 */
 int	event_windowdestroy(t_env *e)
 {
