@@ -20,7 +20,6 @@
 
 typedef struct s_env
 {
-	//mlx
 	void	*mlx;
 	void	*win;
 	int		win_width;
@@ -33,7 +32,7 @@ typedef struct s_env
 	int		img_endian;
 	int		img_width;
 	int		img_height;
-	//coordinates
+
 	double	x_min;
 	double	x_max;
 	double	x_range;
@@ -42,24 +41,24 @@ typedef struct s_env
 	double	y_range;
 	double	x_mappd;
 	double	y_mappd;
-	//navigation
+
 	double	zoomfactor;
 	double	movefactor;
-	//mouse actions
+
 	int		mouse_press_x;
 	int		mouse_press_y;
 	int		mouse_release_x;
 	int		mouse_release_y;
 	int		mouse_button;
-	//iteration settings
+
 	int		max_iter;
 	int		min_iter;
 	int		iter;
 	int		iterstep;
-	//julia settings
+
 	double	julia_x;
 	double	julia_y;
-	//sierpcircle settings
+
 	double	r_start;
 	double	r_min;
 	double	a_mappd;
@@ -68,7 +67,7 @@ typedef struct s_env
 	double	factor;
 	double	line;
 	int		in_sierp;
-	//color settings
+
 	int		maxcolor;
 	int		mincolor;
 	int		mincolor_t;
@@ -80,7 +79,7 @@ typedef struct s_env
 	int		maxcolor_g;
 	int		maxcolor_b;
 	char	color_scheme;
-	//functions
+
 	void	(*draw)();
 	int		(*fractal)();
 	int		(*outside_set)();
