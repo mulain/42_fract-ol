@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 08:52:46 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/14 20:58:56 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/09/15 21:07:49 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	check_general(t_env *e, int argc, char **argv)
 {
-	if (argc < 2 || argc > 4)
+	if (argc < 2 || argc > 4 || (argv[1][0] != 'S' && argc < 3))
 		my_exit(e, 1);
 	if (argv[1][1] || !ft_strchr("MJBNS", (int)argv[1][0]))
 		my_exit(e, 1);

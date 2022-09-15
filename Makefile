@@ -6,12 +6,12 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 17:11:14 by wmardin           #+#    #+#              #
-#    Updated: 2022/09/14 15:13:43 by wmardin          ###   ########.fr        #
+#    Updated: 2022/09/15 21:06:28 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -O3
 OS = $(shell uname)
 
 ifeq ($(OS), Linux)
