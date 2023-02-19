@@ -13,12 +13,12 @@ Examples:
 ./fractol M r     ./fractol J d 1     ./fractol S
 =======================================================================================
 Controls during program execution:
-Move                                          Arrow keys or drag mouse
-Zoom in                                       left mouse, mousewheel up
-Zoom out                                      right mouse, mousewheel down
+Move                                          Arrow keys or click and drag mouse
+Zoom in                                       left mouse or mousewheel up
+Zoom out                                      right mouse or mousewheel down
 + iterations                                  w
 - iterations                                  s
 Change base color                             c (only solid and candyland color schemes)
 Change coloring algorithm for inside set      i
-Change coloring algorithm for outside set     o (Bernstein formula thanks to Anahit)
+Change coloring algorithm for outside set     o
 =======================================================================================

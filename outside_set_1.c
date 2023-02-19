@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   outside_set_1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
+/*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 17:23:54 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/12 19:23:07 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/02/19 16:56:18 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	colorizer2(t_env *e, int n)
 }
 
 /*
-Bernstein color formula. Thanks to Anahit for showing me this!
+Bernstein color formula.
 */
 int	colorizer3(t_env *e, int n)
 {
@@ -67,7 +67,7 @@ int	colorizer3(t_env *e, int n)
 }
 
 /*
-Bernstein, but r and b switched. For me, this is actually way bernsteinier!
+Bernstein, but r and b switched.
 */
 int	colorizer4(t_env *e, int n)
 {
