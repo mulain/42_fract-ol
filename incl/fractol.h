@@ -20,7 +20,6 @@
 # include "mlx.h"
 # include "../libft/include/libft.h"
 
-
 typedef struct s_env
 {
 	void	*mlx;
