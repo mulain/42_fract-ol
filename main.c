@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
+/*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:46:14 by wmardin           #+#    #+#             */
-/*   Updated: 2022/09/14 18:10:59 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/02/19 14:08:44 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,19 @@ int	my_exit(t_env *e, int failure)
 	int		fd;
 	char	text[1500];
 	int		readsize;
+	int		discard;
 
 	if (failure)
 	{
 		fd = open("help.txt", 0);
 		readsize = read(fd, text, 1500);
-		write(1, text, readsize);
-		write(1, "\n", 1);
+		discard = write(1, text, readsize);
+		discard = write(1, "\n", 1);
 		exit(1);
 	}
 	else
 		mlx_destroy_image(e->mlx, e->img);
-	write(1, "Exit.\n", 6);
+	discard = write(1, "Exit.\n", 6);
+	(void)discard;
 	exit(0);
 }

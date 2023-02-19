@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
+/*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/29 23:54:59 by wmardin           #+#    #+#             */
-/*   Updated: 2022/01/29 23:54:59 by wmardin          ###   ########.fr       */
+/*   Created: 2023/02/19 14:24:37 by wmardin           #+#    #+#             */
+/*   Updated: 2023/02/19 14:24:37 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 
 # define FRACTOL_H
-# include "mlx/mlx.h"
-# include "libft/include/libft.h"
+
 # include <fcntl.h>
 # include <stdio.h>
+
+# include "mlx.h"
+# include "../libft/include/libft.h"
+
 
 typedef struct s_env
 {
