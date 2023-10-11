@@ -20,6 +20,8 @@
 # include "mlx.h"
 # include "../libft/include/libft.h"
 
+typedef struct s_env t_env;
+
 typedef struct s_env
 {
 	void	*mlx;
@@ -82,10 +84,10 @@ typedef struct s_env
 	int		maxcolor_b;
 	char	color_scheme;
 
-	void	(*draw)();
-	int		(*fractal)();
-	int		(*outside_set)();
-	int		(*inside_set)();
+	void	(*draw)(t_env *e);
+	int		(*fractal)(t_env *e);
+	int		(*outside_set)(t_env *e, int y);
+	int		(*inside_set)(int x, int y);
 }	t_env;
 
 //main.c
